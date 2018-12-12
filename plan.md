@@ -10,6 +10,7 @@ webgl、vue（11月-1月）
 
 ## 基础学习内容
 1. 《webgl编程指南》
+2. 《深入理解es6》
 
 ## 进阶学习内容
 1. [vue技术揭秘](https://ustbhuangyi.github.io/vue-analysis/prepare/)

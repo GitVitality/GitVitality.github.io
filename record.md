@@ -141,3 +141,85 @@ tags:
 1. 完成页面的交互需求
 
 2018年10月22日
+1. 修复了个启2迭代一bug，以及ui需求
+2. 由于文件上传的原因，还有文件上传接口没有进行测试
+
+2018年10月23日
+1. 修复迭代一bug
+2. 完成已选人群包、新建定向的交互
+
+2018年10月24日
+1. 添加已有人群组、新建定向，完成数据校验、传出与重新加载
+2. 详情数据加载还未完成
+
+2018年10月25日
+1. 给个人信息添加行业内信息，解决了el-select的校验问题
+2. 修改计划列表的展示信息，添加了下载图标（垂直居中）
+
+2018年10月26日
+1. 修正了el-radio重复点击的错误(增加了判断)
+
+2018年10月29日
+1. 新建任务接口联调（app安装/app非活跃/人群包）
+
+2018年10月30日
+1. 个人中心编辑接口联调
+
+2018年10月31日
+1. 新建任务接口联调（已有人群组/新建定向）
+2. 计划列表接口联调
+
+2018年11月1日
+1. 接口联调测试
+
+2018年11月5日
+
+
+2018年11月13日
+1. 完成了根据webpack-dev-server命令行参数动态加载模块
+2. 写一个能接收基本命令的工具；（即将实现）
+
+2018年11月14日
+1. 完成了node-youdao命令工具的实现，并上传至npm官网
+2. 给eslint添加插件（了解eslint的原理，添加插件，阅读官网的插件定义规则）（未完成，难度较大，还可以参考一下stylelint)
+
+2018年11月15日
+1. mongodb数据库（未开始）(基本操作，但是概念还没捋清楚)
+2. redis数据库学习（未开始）
+
+
+1. 代码垂直方向的紧凑性与关联性
+2. 初始化顺序 [initState](https://github.com/vuejs/vue/blob/dev/src/core/instance/state.js)
+props > methods > data > computed > watch 
+数据变化后
+
+
+1. eslint.js CLI
+2. cli.js 主体流程
+3. cli-engine.js 
+4. linter.js verifyAndFix(verify(_verifyWithoutProcessors(parse->runRules))->fix)
+parse(DEFAULT_PARSER_NAME="espree")
+
+astToDoc（printAstToDoc）、printPathNoParens()
+
+2018年11月19日
+1. 阅读webpack文档的webpack-meetuo-2018-05
+
+2018年11月20日
+1. webpack插件化设计，tapable(理解较困难)
+
+2018年11月23日
+1. vscode插件编写本地调试ok，但是vsce打包或者发布到云平台后就不能运行。
+2. 对Assembly Script编程有一个初步的认知。
+
+2018年11月26日
+1. 修复个启迭代2bug，上线
+
+2018年11月27日
+1. three.js学习（gamma校正、几何体，网格（交、并、差），网格合并，粒子系统）
+
+2018年11月28日
+1. 对webpack的理解又加深了一层
+2. 梳理了组件的优化点
+
+2018年11月29日
