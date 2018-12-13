@@ -1,8 +1,7 @@
 ---
 title: d3基础api
 date: 2018-08-27 09:13:13
-tags:
-  - d3
+tags: d3
 ---
 
 ## API文档
