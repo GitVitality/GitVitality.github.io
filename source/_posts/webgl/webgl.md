@@ -1,5 +1,6 @@
 ---
-title: webgl编程指南
+title: webgl学习
 date: 2018-10-26 10:45:53
-tags:
+tags: webgl
+categories: visualization
 ---

@@ -1,7 +1,8 @@
 ---
 title: RxJS
 date: 2018-08-29 11:18:35
-tags:
+tags: rxjs
+categories: library
 ---
 
 ### RxJS

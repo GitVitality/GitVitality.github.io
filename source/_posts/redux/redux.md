@@ -1,7 +1,8 @@
 ---
 title: redux学习
 date: 2018-08-31 15:41:12
-tags:
+tags: redux
+categories: library
 ---
 
 ## 学习状态管理
