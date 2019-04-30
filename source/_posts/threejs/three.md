@@ -1,8 +1,8 @@
 ---
 title: three.js绘制土星视频
-date: 2018-12-21 16:13:29
-tags: three.js
-categories: visualization
+date: 2018-12-21 09:00:00
+tags: [three.js]
+categories: three.js
 ---
 
 ### 项目步骤
