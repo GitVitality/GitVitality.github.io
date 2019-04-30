@@ -1,12 +1,14 @@
 ---
-title: Three.js绘制土星视频
+title: three.js绘制土星视频
 date: 2018-12-21 16:13:29
-tags: Three.js
+tags: three.js
 categories: visualization
 ---
 
 ### 项目步骤
+
 #### 创建一个渲染器
+
 ```
 <html>
   <head>
@@ -30,7 +32,8 @@ categories: visualization
 </html>
 ```
 
-#### 加载最大背景
+####  加载最大背景
+
 ```
 var backgroundScene = new THREE.Scene()
 // 正视投影相机
@@ -50,7 +53,8 @@ backgroundScene.add(backgroundPlane)
 backgroundMaterial.depthWrite = false
 ```
 
-#### 加载石头背景
+#### 加载  石头背景
+
 ```
 var scene = new THREE.Scene()
 var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000000)
@@ -72,6 +76,7 @@ backMeteorsMaterial.depthWrite = false
 ```
 
 #### 石头效果
+
 ```
 var rockGroups = []
 var rockContainers = new THREE.Group()
@@ -108,6 +113,7 @@ scene.add(rockContainers)
 ```
 
 #### 土星流动效果
+
 ```
 var vertShader = document.getElementById('vertexShader').textContent
 var fragShader = document.getElementById('fragmentShader').textContent
@@ -129,6 +135,7 @@ scene.add(planetPlane)
 ```
 
 #### 添加光照
+
 ```
 // 环境光
 var ambient = new THREE.AmbientLight(0x555555)
@@ -141,6 +148,7 @@ scene.add(light)
 ```
 
 #### 添加插件
+
 ```
 // 初始化性能插件
 var stats
@@ -202,10 +210,12 @@ function initGui() {
 ```
 
 #### 着色器
-着色器变量，attribute、varying、uniform
+
+着色  器变量，attribute、varying、uniform
 顶点着色器：attribute、uniform
 片段着色器：uniform
-varying是顶点着色器与片段着色器的传输纽带
+varying 是顶点着色器与片段着色器的传输纽带
+
 ```
 // 顶点着色器
 <script id="vertexShader" type="x-shader/x-vertex">
@@ -245,6 +255,7 @@ varying是顶点着色器与片段着色器的传输纽带
 ```
 
 #### 让画面动起来
+
 ```
 function animate() {
   stats.update()
@@ -278,7 +289,9 @@ function animate() {
 ```
 
 #### 窗口变化时的更新
-对于透视投影相机，需要更新aspect、同时更新投影矩阵，场景中的其它物体的坐标会自动更新。
+
+对于透视投影相机，需要更新 aspect、同时更新投影矩阵，场景中的其它物体的坐标会自动更新。
+
 ```
 function onWindowResize() {
 	camera.aspect = window.innerWidth / window.innerHeight
@@ -289,27 +302,29 @@ function onWindowResize() {
 ```
 
 ### 问题及解决方案
+
 1. 将图片平铺时，采用正视相机
 2. 图像循环平移，但是重置位置时会发生闪变的效果，左右两个图片，实现了循环播放的效果
-3. transparent、opacity，小石头有透明的效果。背景需要设置透明的效果，透明物体与不透明物体相遇时的效果，可以通过设置透明物体材质的blending属性
+3. transparent、opacity，小石头有透明的效果。背景需要设置透明的效果，透明物体与不透明物体相遇时的效果，可以通过设置透明物体材质的 blending 属性
 4. 相机位置对物体位置造成的影响，如何查看到物体的具体位置，可视化图像的位置？
 
-### 深度渲染的参数
+### 深度渲染  的参数
+
 1. 开启深度渲染，depthTest
 2. 材质是否添加到深度缓冲区，depthWrite
 3. 透明物体与不透明物体的叠加效果，blending
 
 ### 学习资料
-1. [Three.js官方文档](https://threejs.org/docs/index.html#manual/zh/introduction/Creating-a-scene)
-2. [Three.js现学现卖](https://aotu.io/notes/2017/08/28/getting-started-with-threejs/index.html)
-3. [Three.js开发指南](https://book.douban.com/subject/26349497/)
-4. [Three.js基础理论](https://medium.com/@necsoft/three-js-101-hello-world-part-1-443207b1ebe1)
-5. [Three.js教程](https://teakki.com/p/58a3ef1bf0d40775548c908f)
-6. [Three.js官方示例](https://threejs.org/examples/#webgl_animation_cloth)
-7. [Three.js绘制土星视频(原创英文版)](https://medium.freecodecamp.org/how-i-recreated-the-music-video-gorillazs-andromeda-with-webgl-f9b0fe55fb17)
+
+1. [Three.js 官方文档](https://threejs.org/docs/index.html#manual/zh/introduction/Creating-a-scene)
+2. [Three.js 现学现卖](https://aotu.io/notes/2017/08/28/getting-started-with-threejs/index.html)
+3. [Three.js 开发指南](https://book.douban.com/subject/26349497/)
+4. [Three.js 基础理论](https://medium.com/@necsoft/three-js-101-hello-world-part-1-443207b1ebe1)
+5. [Three.js 教程](https://teakki.com/p/58a3ef1bf0d40775548c908f)
+6. [Three.js 官方示例](https://threejs.org/examples/#webgl_animation_cloth)
+7. [Three.js 绘制土星视频(原创英文版)](https://medium.freecodecamp.org/how-i-recreated-the-music-video-gorillazs-andromeda-with-webgl-f9b0fe55fb17)
 
 ### 图片集锦
+
 ![Three.js基础概念](https://teakki.com/file/image/58a55615f0d40775548cbaed)
 ![Three.js核心对象结构](https://misc.aotu.io/JChehe/2017-08-28-getting-started-with-threejs/three_render.jpg)
-
-
