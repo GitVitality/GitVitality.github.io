@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="three.js,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="项目步骤创建一个渲染器1234567891011121314151617181920&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;    &amp;lt;meta charset=utf-8&amp;gt;    &amp;lt;title&amp;gt;My first three.js app&amp;lt;/title&amp;gt;    &amp;lt;style&amp;gt;      body &amp;#123; margin: 0; &amp;#12">
+<meta name="keywords" content="three.js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="three.js绘制土星视频">
+<meta property="og:url" content="http://yoursite.com/2018/12/21/threejs/three/index.html">
+<meta property="og:site_name" content="远行">
+<meta property="og:description" content="项目步骤创建一个渲染器1234567891011121314151617181920&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;    &amp;lt;meta charset=utf-8&amp;gt;    &amp;lt;title&amp;gt;My first three.js app&amp;lt;/title&amp;gt;    &amp;lt;style&amp;gt;      body &amp;#123; margin: 0; &amp;#12">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://teakki.com/file/image/58a55615f0d40775548cbaed">
+<meta property="og:image" content="https://misc.aotu.io/JChehe/2017-08-28-getting-started-with-threejs/three_render.jpg">
+<meta property="og:updated_time" content="2019-04-30T02:43:40.620Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="three.js绘制土星视频">
+<meta name="twitter:description" content="项目步骤创建一个渲染器1234567891011121314151617181920&amp;lt;html&amp;gt;  &amp;lt;head&amp;gt;    &amp;lt;meta charset=utf-8&amp;gt;    &amp;lt;title&amp;gt;My first three.js app&amp;lt;/title&amp;gt;    &amp;lt;style&amp;gt;      body &amp;#123; margin: 0; &amp;#12">
+<meta name="twitter:image" content="https://teakki.com/file/image/58a55615f0d40775548cbaed">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/12/21/threejs/three/">
+
+
+
+
+
+  <title>three.js绘制土星视频 | 远行</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">远行</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/12/21/threejs/three/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨岚">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="远行">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">three.js绘制土星视频</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-12-21T09:00:00+08:00">
+                2018-12-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/three-js/" itemprop="url" rel="index">
+                    <span itemprop="name">three.js</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="项目步骤"><a href="#项目步骤" class="headerlink" title="项目步骤"></a>项目步骤</h3><h4 id="创建一个渲染器"><a href="#创建一个渲染器" class="headerlink" title="创建一个渲染器"></a>创建一个渲染器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;html&gt;</span><br><span class="line">  &lt;head&gt;</span><br><span class="line">    &lt;meta charset=utf-8&gt;</span><br><span class="line">    &lt;title&gt;My first three.js app&lt;/title&gt;</span><br><span class="line">    &lt;style&gt;</span><br><span class="line">      body &#123; margin: 0; &#125;</span><br><span class="line">      canvas &#123; width: 100%; height: 100% &#125;</span><br><span class="line">    &lt;/style&gt;</span><br><span class="line">  &lt;/head&gt;</span><br><span class="line">  &lt;body&gt;</span><br><span class="line">    &lt;script src=&quot;js/three.js&quot;&gt;&lt;/script&gt;</span><br><span class="line">    &lt;script&gt;</span><br><span class="line">      var renderer = new THREE.WebGLRenderer();</span><br><span class="line">      renderer.setSize(window.innerWidth, window.innerHeight);</span><br><span class="line">      document.body.appendChild(renderer.domElement);</span><br><span class="line">      // 多个场景渲染时，不清除上个场景渲染的内容</span><br><span class="line">      renderer.autoClear = false</span><br><span class="line">    &lt;/script&gt;</span><br><span class="line">  &lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="加载最大背景"><a href="#加载最大背景" class="headerlink" title=" 加载最大背景"></a> 加载最大背景</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">var backgroundScene = new THREE.Scene()</span><br><span class="line">// 正视投影相机</span><br><span class="line">var backgroundCamera = new THREE.OrthographicCamera(-2, 2, -1, 1, 0.1, 1000000)</span><br><span class="line">backgroundCamera.position.z = 10</span><br><span class="line">var backgroundGeometry = new THREE.PlaneGeometry(4, 1, 0)</span><br><span class="line">var backgroundTexture = new THREE.TextureLoader().load(&apos;/assets/background.png&apos;)</span><br><span class="line">var backgroundMaterial = new THREE.MeshBasicMaterial(&#123;</span><br><span class="line">  map: backgroundTexture,</span><br><span class="line">  color: 0xffffff,</span><br><span class="line">  transparent: true,</span><br><span class="line">  side: THREE.DoubleSide,</span><br><span class="line">  opacity: options.backgroud.opacity</span><br><span class="line">&#125;)</span><br><span class="line">var backgroundPlane = new THREE.Mesh(backgroundGeometry, backgroundMaterial)</span><br><span class="line">backgroundScene.add(backgroundPlane)</span><br><span class="line">backgroundMaterial.depthWrite = false</span><br></pre></td></tr></table></figure>
+<h4 id="加载-石头背景"><a href="#加载-石头背景" class="headerlink" title="加载  石头背景"></a>加载  石头背景</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var scene = new THREE.Scene()</span><br><span class="line">var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000000)</span><br><span class="line">camera.position.z = 10</span><br><span class="line"></span><br><span class="line">var backMeteorsGeometry = new THREE.PlaneGeometry(4, 1, 0)</span><br><span class="line">var backMeteorsTexture = new THREE.TextureLoader().load(&apos;/assets/backMeteors.png&apos;)</span><br><span class="line">var backMeteorsMaterial = new THREE.MeshBasicMaterial(&#123;</span><br><span class="line">	map: backMeteorsTexture,</span><br><span class="line">	color: 0xffffff,</span><br><span class="line">	transparent: true,</span><br><span class="line">	side: THREE.DoubleSide,</span><br><span class="line">	opacity: options.backMeteors.opacity,</span><br><span class="line">	blending: THREE.AdditiveBlending</span><br><span class="line">&#125;)</span><br><span class="line">var backMeteorsPlane = new THREE.Mesh(backMeteorsGeometry, backMeteorsMaterial)</span><br><span class="line">scene.add(backMeteorsPlane)</span><br><span class="line">backMeteorsMaterial.depthWrite = false</span><br></pre></td></tr></table></figure>
+<h4 id="石头效果"><a href="#石头效果" class="headerlink" title="石头效果"></a>石头效果</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">var rockGroups = []</span><br><span class="line">var rockContainers = new THREE.Group()</span><br><span class="line">for (var m = 0; m &lt; 1000; m++) &#123;</span><br><span class="line">  var rockGroup = new THREE.Group()</span><br><span class="line">  var rockGeometry = new THREE.OctahedronGeometry(30)</span><br><span class="line">  var rockLineMaterial = new THREE.LineBasicMaterial(&#123;</span><br><span class="line">    color: 0xffffff</span><br><span class="line">  &#125;)</span><br><span class="line">  var rockMaterial = new THREE.MeshBasicMaterial(&#123;</span><br><span class="line">    shading: THREE.SmoothShading,</span><br><span class="line">    color: options.rockGroups.color</span><br><span class="line">  &#125;)</span><br><span class="line"></span><br><span class="line">  // 给石头添加变形</span><br><span class="line">  for (var b = 0; b &lt; rockGeometry.vertices.length; b++) &#123;</span><br><span class="line">    var vertice = rockGeometry.vertices[b]</span><br><span class="line">    vertice.x = (Math.random() - 0.5) * 100 + vertice.x</span><br><span class="line">    vertice.y = (Math.random() - 0.5) * 100 + vertice.y</span><br><span class="line">    vertice.z = (Math.random() - 0.5) * 100 + vertice.z</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  rockGroup.add(new THREE.LineSegments(new THREE.WireframeGeometry(rockGeometry), rockLineMaterial))</span><br><span class="line">  rockGroup.add(new THREE.Mesh(rockGeometry, rockMaterial))</span><br><span class="line"></span><br><span class="line">  rockGroup.position.x = (Math.random() - 0.5) * 10000 - 60</span><br><span class="line">  rockGroup.position.y = (Math.random() - 0.5) * 10000 - 60</span><br><span class="line">  rockGroup.position.z = (Math.random() - 0.5) * 100 - 60</span><br><span class="line"></span><br><span class="line">  rockContainers.add(rockGroup)</span><br><span class="line">  rockGroups.push(rockGroup)</span><br><span class="line">&#125;</span><br><span class="line">scene.add(rockContainers)</span><br></pre></td></tr></table></figure>
+<h4 id="土星流动效果"><a href="#土星流动效果" class="headerlink" title="土星流动效果"></a>土星流动效果</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">var vertShader = document.getElementById(&apos;vertexShader&apos;).textContent</span><br><span class="line">var fragShader = document.getElementById(&apos;fragmentShader&apos;).textContent</span><br><span class="line">var planetGeometry = new THREE.SphereGeometry(200, 100, 100)</span><br><span class="line">var planetTexture = new THREE.TextureLoader().load(&apos;/assets/planet.png&apos;)</span><br><span class="line">var shaderUniforms = &#123;</span><br><span class="line">  planetTexture: &#123; type: &apos;t&apos;, value: planetTexture &#125;,</span><br><span class="line">  time: &#123; type: &apos;f&apos;, value: 0 &#125;,</span><br><span class="line">  flowWaveRadius: &#123; type: &apos;f&apos;, value: 0.1 &#125;,</span><br><span class="line">  flowIndex: &#123; type: &apos;f&apos;, value: 0 &#125;</span><br><span class="line">&#125;</span><br><span class="line">var planetMaterial = new THREE.ShaderMaterial(&#123;</span><br><span class="line">  uniforms: shaderUniforms,</span><br><span class="line">  vertexShader: vertShader,</span><br><span class="line">  fragmentShader: fragShader</span><br><span class="line">&#125;)</span><br><span class="line">var planetPlane = new THREE.Mesh(planetGeometry, planetMaterial)</span><br><span class="line">scene.add(planetPlane)</span><br></pre></td></tr></table></figure>
+<h4 id="添加光照"><a href="#添加光照" class="headerlink" title="添加光照"></a>添加光照</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">// 环境光</span><br><span class="line">var ambient = new THREE.AmbientLight(0x555555)</span><br><span class="line">scene.add(ambient)</span><br><span class="line"></span><br><span class="line">// 点光源</span><br><span class="line">var light = new THREE.DirectionalLight(0xffffff)</span><br><span class="line">light.position = camera.position</span><br><span class="line">scene.add(light)</span><br></pre></td></tr></table></figure>
+<h4 id="添加插件"><a href="#添加插件" class="headerlink" title="添加插件"></a>添加插件</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line">// 初始化性能插件</span><br><span class="line">var stats</span><br><span class="line">function initStats() &#123;</span><br><span class="line">	stats = new Stats()</span><br><span class="line">	document.body.appendChild(stats.dom)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// 生成gui设置配置项</span><br><span class="line">var gui</span><br><span class="line">function initGui() &#123;</span><br><span class="line">  //声明一个保存需求修改的相关数据的对象</span><br><span class="line">  gui = &#123;</span><br><span class="line">    backgroundOpacity: 0.5,</span><br><span class="line">    backMeteorsSpeed: 1,</span><br><span class="line">    backMeteorsOpacity: 0.5,</span><br><span class="line">    rockGroupsSpeed: 1,</span><br><span class="line">    rockGroupsRotationXSpeed: 0.01,</span><br><span class="line">    rockGroupsRotationYSpeed: 0.01,</span><br><span class="line">    rockGroupsRotationZSpeed: 0.01,</span><br><span class="line">    rockGroupsLineOpacity: 0.5,</span><br><span class="line">    rockGroupsOpacity: 0.5,</span><br><span class="line">    rockGroupsColor: &apos;#5e63b9&apos;,</span><br><span class="line">    planetTimeValue: 0.005,</span><br><span class="line">    planetOpacity: 1,</span><br><span class="line">    redraw() &#123;</span><br><span class="line">      options.backgroundOpacity = gui.backgroundOpacity</span><br><span class="line">      options.backMeteors.speed = gui.backMeteorsSpeed</span><br><span class="line">      options.backMeteors.backMeteorsOpacity = gui.backMeteorsOpacity</span><br><span class="line">      options.rockGroups.speed = gui.rockGroupsSpeed</span><br><span class="line">      options.rockGroups.rotationXSpeed = gui.rockGroupsRotationXSpeed</span><br><span class="line">      options.rockGroups.rotationYSpeed = gui.rockGroupsRotationYSpeed</span><br><span class="line">      options.rockGroups.rotationZSpeed = gui.rockGroupsRotationZSpeed</span><br><span class="line">      options.rockGroups.lineOpacity = gui.lineOpacity</span><br><span class="line">      options.rockGroups.opacity = gui.opacity</span><br><span class="line">      options.rockGroups.color = gui.rockGroupsColor</span><br><span class="line">      options.planet.timeValue = gui.planetTimeValue</span><br><span class="line">      options.planet.opacity = gui.planetOpacity</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  var datGui = new dat.GUI()</span><br><span class="line">  // 将设置属性添加到gui当中，gui.add(对象，属性，最小值，最大值）</span><br><span class="line">  gui.add(controls, &apos;size&apos;, 0, 10).onChange(controls.redraw);</span><br><span class="line">  datGui.add(gui, &apos;backgroundOpacity&apos;, 0, 1).step(0.1).onChange(gui.redraw)</span><br><span class="line">  datGui.add(gui, &apos;backMeteorsSpeed&apos;, 0, 4).step(1).onChange(gui.redraw)</span><br><span class="line">  datGui.add(gui, &apos;backMeteorsOpacity&apos;, 0, 1).step(0.1).onChange(gui.redraw)</span><br><span class="line">  datGui.add(gui, &apos;rockGroupsSpeed&apos;, 0, 4).step(1).onChange(gui.redraw)</span><br><span class="line">  datGui.add(gui, &apos;rockGroupsRotationXSpeed&apos;, 0.001, 0.04).step(0.005).onChange(gui.redraw)</span><br><span class="line">  datGui.add(gui, &apos;rockGroupsRotationYSpeed&apos;, 0.001, 0.04).step(0.005).onChange(gui.redraw)</span><br><span class="line">  datGui.add(gui, &apos;rockGroupsRotationZSpeed&apos;, 0.001, 0.04).step(0.005).onChange(gui.redraw)</span><br><span class="line">  datGui.add(gui, &apos;rockGroupsLineOpacity&apos;, 0, 1).step(0.1).onChange(gui.redraw)</span><br><span class="line">  datGui.add(gui, &apos;rockGroupsOpacity&apos;, 0, 1).step(0.1).onChange(gui.redraw)</span><br><span class="line">  datGui.addColor(gui, &apos;rockGroupsColor&apos;).onChange(gui.redraw)</span><br><span class="line">  datGui.add(gui, &apos;planetTimeValue&apos;, 0.001, 0.04).step(0.005).onChange(gui.redraw)</span><br><span class="line">  datGui.add(gui, &apos;planetOpacity&apos;, 0, 1).step(0.1).onChange(gui.redraw)</span><br><span class="line"></span><br><span class="line">  gui.redraw()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="着色器"><a href="#着色器" class="headerlink" title="着色器"></a>着色器</h4><p>着色  器变量，attribute、varying、uniform<br>顶点着色器：attribute、uniform<br>片段着色器：uniform<br>varying 是顶点着色器与片段着色器的传输纽带</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">// 顶点着色器</span><br><span class="line">&lt;script id=&quot;vertexShader&quot; type=&quot;x-shader/x-vertex&quot;&gt;</span><br><span class="line">  varying vec2 vUv;</span><br><span class="line"></span><br><span class="line">  void main()</span><br><span class="line">  &#123;</span><br><span class="line">    vUv = uv;</span><br><span class="line">    gl_Position = projectionMatrix *</span><br><span class="line">                  modelViewMatrix *</span><br><span class="line">                  vec4(position,1.0);</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">// 片段着色器</span><br><span class="line">&lt;script id=&quot;fragmentShader&quot; type=&quot;x-shader/x-fragment&quot;&gt;</span><br><span class="line">  varying vec2 vUv;</span><br><span class="line">  uniform sampler2D planetTexture;</span><br><span class="line">  uniform float time;</span><br><span class="line">  uniform float flowWaveRadius;</span><br><span class="line">  uniform float flowIndex;</span><br><span class="line">  uniform float opacity;</span><br><span class="line"></span><br><span class="line">  void main()</span><br><span class="line">  &#123;</span><br><span class="line">    float pi = 3.1415926535897932384626433832795;</span><br><span class="line">    float easeBase = ( 1.0 - vUv.y * 0.4);</span><br><span class="line">    float ease = pow( easeBase , 6.0 );</span><br><span class="line">    float offsetY = ( ease + (sin( (vUv.x + flowIndex) * pi * 4.0 ) * vUv.x * vUv.y + 1.0 )  * flowWaveRadius - time * 0.1);</span><br><span class="line">    float vUvY = mod( offsetY * 1000.0,1000.0) / 1000.0;</span><br><span class="line">    vec2 offsetUv = vec2(vUv.x, vUvY);</span><br><span class="line">    vec4 textureColor = texture2D(planetTexture, offsetUv);</span><br><span class="line">    gl_FragColor = vec4(0, 0, 0, 0.5);</span><br><span class="line">    gl_FragColor = gl_FragColor + textureColor;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="让画面动起来"><a href="#让画面动起来" class="headerlink" title="让画面动起来"></a>让画面动起来</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">function animate() &#123;</span><br><span class="line">  stats.update()</span><br><span class="line">  requestAnimationFrame(animate)</span><br><span class="line"></span><br><span class="line">  // 背景</span><br><span class="line">  backMeteorsPlane.position.x += options.backMeteors.speed</span><br><span class="line">  if (backMeteorsPlane.position.x &gt; scale / 10) &#123;</span><br><span class="line">    backMeteorsPlane.position.x = 0</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 石头</span><br><span class="line">  for (var i = 0; i &lt; rockGroups.length; i++) &#123;</span><br><span class="line">    var meteor = rockGroups[i]</span><br><span class="line">    meteor.position.x -= options.rockGroups.speed</span><br><span class="line"></span><br><span class="line">    meteor.rotation.x -= options.rockGroups.rotationXSpeed</span><br><span class="line">    meteor.rotation.y -= options.rockGroups.rotationYSpeed</span><br><span class="line">    meteor.rotation.z -= options.rockGroups.rotationZSpeed</span><br><span class="line"></span><br><span class="line">    meteor.children[1].material.color.set(options.rockGroups.color)</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  // 背景流动</span><br><span class="line">  shaderUniforms.time.value += options.planet.timeValue</span><br><span class="line">  shaderUniforms.flowIndex.value = 0.5 + Math.sin(shaderUniforms.time.value * 0.2) * 0.5</span><br><span class="line"></span><br><span class="line">  renderer.render(backgroundScene, backgroundCamera)</span><br><span class="line">  renderer.render(scene, camera)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="窗口变化时的更新"><a href="#窗口变化时的更新" class="headerlink" title="窗口变化时的更新"></a>窗口变化时的更新</h4><p>对于透视投影相机，需要更新 aspect、同时更新投影矩阵，场景中的其它物体的坐标会自动更新。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function onWindowResize() &#123;</span><br><span class="line">	camera.aspect = window.innerWidth / window.innerHeight</span><br><span class="line">	camera.updateProjectionMatrix()</span><br><span class="line"></span><br><span class="line">	renderer.setSize(window.innerWidth, window.innerHeight)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="问题及解决方案"><a href="#问题及解决方案" class="headerlink" title="问题及解决方案"></a>问题及解决方案</h3><ol>
+<li>将图片平铺时，采用正视相机</li>
+<li>图像循环平移，但是重置位置时会发生闪变的效果，左右两个图片，实现了循环播放的效果</li>
+<li>transparent、opacity，小石头有透明的效果。背景需要设置透明的效果，透明物体与不透明物体相遇时的效果，可以通过设置透明物体材质的 blending 属性</li>
+<li>相机位置对物体位置造成的影响，如何查看到物体的具体位置，可视化图像的位置？</li>
+</ol>
+<h3 id="深度渲染-的参数"><a href="#深度渲染-的参数" class="headerlink" title="深度渲染  的参数"></a>深度渲染  的参数</h3><ol>
+<li>开启深度渲染，depthTest</li>
+<li>材质是否添加到深度缓冲区，depthWrite</li>
+<li>透明物体与不透明物体的叠加效果，blending</li>
+</ol>
+<h3 id="学习资料"><a href="#学习资料" class="headerlink" title="学习资料"></a>学习资料</h3><ol>
+<li><a href="https://threejs.org/docs/index.html#manual/zh/introduction/Creating-a-scene" target="_blank" rel="noopener">Three.js 官方文档</a></li>
+<li><a href="https://aotu.io/notes/2017/08/28/getting-started-with-threejs/index.html" target="_blank" rel="noopener">Three.js 现学现卖</a></li>
+<li><a href="https://book.douban.com/subject/26349497/" target="_blank" rel="noopener">Three.js 开发指南</a></li>
+<li><a href="https://medium.com/@necsoft/three-js-101-hello-world-part-1-443207b1ebe1" target="_blank" rel="noopener">Three.js 基础理论</a></li>
+<li><a href="https://teakki.com/p/58a3ef1bf0d40775548c908f" target="_blank" rel="noopener">Three.js 教程</a></li>
+<li><a href="https://threejs.org/examples/#webgl_animation_cloth" target="_blank" rel="noopener">Three.js 官方示例</a></li>
+<li><a href="https://medium.freecodecamp.org/how-i-recreated-the-music-video-gorillazs-andromeda-with-webgl-f9b0fe55fb17" target="_blank" rel="noopener">Three.js 绘制土星视频(原创英文版)</a></li>
+</ol>
+<h3 id="图片集锦"><a href="#图片集锦" class="headerlink" title="图片集锦"></a>图片集锦</h3><p><img src="https://teakki.com/file/image/58a55615f0d40775548cbaed" alt="Three.js基础概念"><br><img src="https://misc.aotu.io/JChehe/2017-08-28-getting-started-with-threejs/three_render.jpg" alt="Three.js核心对象结构"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/three-js/" rel="tag"># three.js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/23/basis/cache/" rel="prev" title="浏览器缓存">
+                浏览器缓存 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">杨岚</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://blog.johnhan.cn/" title="韩永昊" target="_blank">韩永昊</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目步骤"><span class="nav-number">1.</span> <span class="nav-text">项目步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建一个渲染器"><span class="nav-number">1.1.</span> <span class="nav-text">创建一个渲染器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载最大背景"><span class="nav-number">1.2.</span> <span class="nav-text"> 加载最大背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#加载-石头背景"><span class="nav-number">1.3.</span> <span class="nav-text">加载  石头背景</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#石头效果"><span class="nav-number">1.4.</span> <span class="nav-text">石头效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#土星流动效果"><span class="nav-number">1.5.</span> <span class="nav-text">土星流动效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加光照"><span class="nav-number">1.6.</span> <span class="nav-text">添加光照</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#添加插件"><span class="nav-number">1.7.</span> <span class="nav-text">添加插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#着色器"><span class="nav-number">1.8.</span> <span class="nav-text">着色器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#让画面动起来"><span class="nav-number">1.9.</span> <span class="nav-text">让画面动起来</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#窗口变化时的更新"><span class="nav-number">1.10.</span> <span class="nav-text">窗口变化时的更新</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#问题及解决方案"><span class="nav-number">2.</span> <span class="nav-text">问题及解决方案</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深度渲染-的参数"><span class="nav-number">3.</span> <span class="nav-text">深度渲染  的参数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#学习资料"><span class="nav-number">4.</span> <span class="nav-text">学习资料</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图片集锦"><span class="nav-number">5.</span> <span class="nav-text">图片集锦</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">杨岚</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
