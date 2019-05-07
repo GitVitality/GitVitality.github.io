@@ -81,3 +81,5 @@ deploy:
   type: git
   repo: git@github.com:GitVitality/GitVitality.github.io.git
   branch: master
+
+google_analytics: 194763158
