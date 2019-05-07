@@ -127,6 +127,15 @@
 
 
 
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '194763158', 'auto');
+  ga('send', 'pageview');
+</script>
+
 
 
 
@@ -249,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/01/vue/shift/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/07/basis/async/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨岚">
@@ -268,7 +277,169 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/05/01/vue/shift/" itemprop="url">vue-给element的table组件添加shift键功能</a></h1>
+                <a class="post-title-link" href="/2019/05/07/basis/async/" itemprop="url">JavaScript异步处理</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-07T09:00:00+08:00">
+                2019-05-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/basis/" itemprop="url" rel="index">
+                    <span itemprop="name">basis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="异步处理的发展"><a href="#异步处理的发展" class="headerlink" title="异步处理的发展"></a>异步处理的发展</h2><h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><p>缺点：陷入回调函数嵌套的地狱</p>
+<h3 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h3><p>优点：</p>
+<ul>
+<li>解决了回调函数嵌套的地狱问题</li>
+<li>有明确的状态管理</li>
+</ul>
+<p>缺点：</p>
+<ul>
+<li>代码不清晰</li>
+<li>在业务当中遇到了需要在 promise 之间传递共享数据的需求</li>
+</ul>
+<h3 id="aync-await"><a href="#aync-await" class="headerlink" title="aync await"></a>aync await</h3><p>优点：</p>
+<ul>
+<li>代码逻辑结构清晰</li>
+<li>可以采用 try catch 捕获错误</li>
+</ul>
+<h2 id="业务异步处理"><a href="#业务异步处理" class="headerlink" title="业务异步处理"></a>业务异步处理</h2><ul>
+<li>尽量采用 async await 函数，但是需要在 created、mounted 等生命周期中进行异步处理的话，created、mounted 函数写成异步函数有些奇怪。</li>
+<li>注意错误捕获，如果使用 promise，一定要 catch 错误；使用 await，需要 try catch 错误。注意 try catch 只能捕获同步处理的错误，不能捕获 promise 内部的错误 😯。</li>
+</ul>
+<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://juejin.im/post/59970a73f265da249150f490" target="_blank" rel="noopener">Promise 中多个回调函数之间的数据传递</a><br><a href="https://github.com/ryanmcdermott/clean-code-javascript#asyncawait-are-even-cleaner-than-promises" target="_blank" rel="noopener">clean-code-javascript</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/01/vue/element-table-shift/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨岚">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="远行">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/01/vue/element-table-shift/" itemprop="url">vue-给element的table组件添加shift键功能</a></h1>
         
 
         <div class="post-meta">
@@ -390,7 +561,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/30/vue/rx/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/30/vue/vue-cli/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨岚">
@@ -409,7 +580,155 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/30/vue/rx/" itemprop="url">vue-函数式编程应用</a></h1>
+                <a class="post-title-link" href="/2019/04/30/vue/vue-cli/" itemprop="url">vue-cli</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-30T12:01:57+08:00">
+                2019-04-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/vue/" itemprop="url" rel="index">
+                    <span itemprop="name">vue</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="vue-cli-插件系统"><a href="#vue-cli-插件系统" class="headerlink" title="vue-cli 插件系统"></a>vue-cli 插件系统</h2><p>最近看了 vue-cli 源码分析与 vue-cli 官方文档，学习了 vue-cli 基于插件的生态系统，同时也有一个较大的发现，vue-ui 也是基于插件的系统，vue-ui 项目中还使用了 apollo 的 graphql 技术。</p>
+<h2 id="vue-ui-项目"><a href="#vue-ui-项目" class="headerlink" title="vue-ui 项目"></a>vue-ui 项目</h2><p>最近在看 vue-ui 这个项目，首先是通过 vue-cli 项目过来的，vue-cli 与 vue-ui 项目都是通过插件机制进行扩展的，vue-cli 插件分为两部分，一是 service 插件，二是 generator。<br>service 插件是在 vue-cli-service 执行命令时进行调用的@vue-cli-service 的 pluginAPI，而 generator 是在项目构建和 add 和 invoke 时进行调用的，@vue-cli 的 GeneratorAPI。</p>
+<p>vue-cli 包含了 vue-ui 项目，ui.js 是入口，pluginAPI 在@vue-cli-ui 中的 apollo-server api 中的 PluginAPI 文件中</p>
+<p>apollo-server 中 server.js 中 connectors 中 plugins runPluginAPI</p>
+<p>vue-ui 插件开发，需要开发 plugin ui.js 和 client addon (自定义组件)</p>
+<p>client addon 可以通过 shared data 、plugin action 与 plugin 通信，而 webpack 不同的 plugin 则采用 IPC 通信。</p>
+<p>vue-cli-plugin-apollo<br>service 插件注册了 apollo:watch 与 apollo:run 两个命令， apollo:watch 通过 nodemon 监听文件变动后重新运行 npm run apollo:run，如果有 —run 参数，则通过 runParallelCommand 函数，即 execa 库同步运行 npm run serve</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/30/vue/vue-rx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨岚">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="远行">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/30/vue/vue-rx/" itemprop="url">vue-函数式编程应用</a></h1>
         
 
         <div class="post-meta">
@@ -561,7 +880,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/vue/hide/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/29/vue/element-table-hide/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨岚">
@@ -580,7 +899,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/29/vue/hide/" itemprop="url">vue-隐藏element的table组件列</a></h1>
+                <a class="post-title-link" href="/2019/04/29/vue/element-table-hide/" itemprop="url">vue-隐藏element的table组件列</a></h1>
         
 
         <div class="post-meta">
@@ -1526,310 +1845,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/24/basis/storage/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨岚">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="远行">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/24/basis/storage/" itemprop="url">客户端存储</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-24T09:00:00+08:00">
-                2019-02-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/basis/" itemprop="url" rel="index">
-                    <span itemprop="name">basis</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="客户端存储"><a href="#客户端存储" class="headerlink" title="客户端存储"></a>客户端存储</h2><ul>
-<li>cookie、session(cookie 存储在客户端、session 存储在服务器，验证时生成一个令牌给客户端存储，在每次请求时带上令牌，http-only)</li>
-<li>sessionStorage、localStorage(浏览器的会话窗口时间、永久性存储)</li>
-<li>indexedDB(异步数据库)</li>
-</ul>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Web_Storage_API" target="_blank" rel="noopener">Web Storage API</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/23/basis/cache/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨岚">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="远行">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/23/basis/cache/" itemprop="url">浏览器缓存</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-23T09:00:00+08:00">
-                2019-02-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/basis/" itemprop="url" rel="index">
-                    <span itemprop="name">basis</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="缓存控制"><a href="#缓存控制" class="headerlink" title="缓存控制"></a>缓存控制</h2><ul>
-<li>HTTP/1.0 program</li>
-<li>HTTP/1.1 Cache-Control<ul>
-<li>no store、no cache</li>
-<li>must-revalidate(强制缓存，但是需要确定缓存的新鲜度)</li>
-<li>private、public</li>
-<li>max-age=31536000(浏览器时间，与服务器时间不一致)</li>
-</ul>
-</li>
-</ul>
-<h2 id="新鲜度"><a href="#新鲜度" class="headerlink" title="新鲜度"></a>新鲜度</h2><ul>
-<li>If-Modified-Since(Last-Modified、服务器时间，但是只能精确到秒级)</li>
-<li>If-None-Match(Etag)</li>
-</ul>
-<h2 id="加速资源-revving-技术"><a href="#加速资源-revving-技术" class="headerlink" title="加速资源(revving 技术)"></a>加速资源(revving 技术)</h2><p>原理：尽量延长资源的缓存时间，但是无法通知资源是否更新，revving 使用添加版本号的方式在 html 文件中通知文件更新，添加了版本号的文件是一个新的独立资源请求。</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ" target="_blank" rel="noopener">HTTP 缓存</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1880,7 +1895,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1902,7 +1917,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

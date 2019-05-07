@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="vue,vue-ssr,">
+  <meta name="keywords" content="vue,rxjs,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="原因 更好的 SEO，由于搜索引擎爬虫抓取工具可以直接查看完全渲染的页面。 更快的内容到达时间 (time-to-content)。  vue-server-renderer12345678const renderer = createRenderer(&amp;#123;  template: require(&apos;fs&apos;).readFileSync(&apos;./index.template.html&apos;, &apos;ut">
-<meta name="keywords" content="vue,vue-ssr">
+<meta name="description" content="业务场景在 element 的 Pagination 组件中，分别去监听 size-change 与 current-change 事件，同时又向后台发送数据请求。size-change 可能会引起 current-change，此时会发送两次请求，但是最终需要的结果是最后一次发送请求的结果。 解决方法这种思想类似于函数防抖，函数防抖的思想是等待、等待、等待一段时间后，再去执行。  利用 load">
+<meta name="keywords" content="vue,rxjs">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue-ssr">
-<meta property="og:url" content="http://yoursite.com/2019/04/27/vue/vue-ssr/index.html">
+<meta property="og:title" content="vue-函数式编程应用">
+<meta property="og:url" content="http://yoursite.com/2019/04/30/vue/vue-rx/index.html">
 <meta property="og:site_name" content="远行">
-<meta property="og:description" content="原因 更好的 SEO，由于搜索引擎爬虫抓取工具可以直接查看完全渲染的页面。 更快的内容到达时间 (time-to-content)。  vue-server-renderer12345678const renderer = createRenderer(&amp;#123;  template: require(&apos;fs&apos;).readFileSync(&apos;./index.template.html&apos;, &apos;ut">
+<meta property="og:description" content="业务场景在 element 的 Pagination 组件中，分别去监听 size-change 与 current-change 事件，同时又向后台发送数据请求。size-change 可能会引起 current-change，此时会发送两次请求，但是最终需要的结果是最后一次发送请求的结果。 解决方法这种思想类似于函数防抖，函数防抖的思想是等待、等待、等待一段时间后，再去执行。  利用 load">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-30T03:42:41.480Z">
+<meta property="og:updated_time" content="2019-04-30T04:01:14.621Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue-ssr">
-<meta name="twitter:description" content="原因 更好的 SEO，由于搜索引擎爬虫抓取工具可以直接查看完全渲染的页面。 更快的内容到达时间 (time-to-content)。  vue-server-renderer12345678const renderer = createRenderer(&amp;#123;  template: require(&apos;fs&apos;).readFileSync(&apos;./index.template.html&apos;, &apos;ut">
+<meta name="twitter:title" content="vue-函数式编程应用">
+<meta name="twitter:description" content="业务场景在 element 的 Pagination 组件中，分别去监听 size-change 与 current-change 事件，同时又向后台发送数据请求。size-change 可能会引起 current-change，此时会发送两次请求，但是最终需要的结果是最后一次发送请求的结果。 解决方法这种思想类似于函数防抖，函数防抖的思想是等待、等待、等待一段时间后，再去执行。  利用 load">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/27/vue/vue-ssr/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/30/vue/vue-rx/">
 
 
 
 
 
-  <title>vue-ssr | 远行</title>
+  <title>vue-函数式编程应用 | 远行</title>
   
 
 
@@ -262,7 +262,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/27/vue/vue-ssr/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/30/vue/vue-rx/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨岚">
@@ -279,7 +279,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">vue-ssr</h1>
+          <h1 class="post-title" itemprop="name headline">vue-函数式编程应用</h1>
         
 
         <div class="post-meta">
@@ -291,8 +291,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-27T09:00:00+08:00">
-                2019-04-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-30T09:00:00+08:00">
+                2019-04-30
               </time>
             
 
@@ -351,11 +351,36 @@
       
 
       
-        <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><ul>
-<li>更好的 SEO，由于搜索引擎爬虫抓取工具可以直接查看完全渲染的页面。</li>
-<li>更快的内容到达时间 (time-to-content)。</li>
+        <h2 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h2><p>在 element 的 Pagination 组件中，分别去监听 size-change 与 current-change 事件，同时又向后台发送数据请求。size-change 可能会引起 current-change，此时会发送两次请求，但是最终需要的结果是最后一次发送请求的结果。</p>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>这种思想类似于函数防抖，函数防抖的思想是等待、等待、等待一段时间后，再去执行。</p>
+<ul>
+<li>利用 loadsh 函数库的 debounce 方法生成一个防抖函数去包装真实的后台数据请求；</li>
+<li>既然 loash 函数库可以，那么 rxjs 应该也可以。</li>
 </ul>
-<h2 id="vue-server-renderer"><a href="#vue-server-renderer" class="headerlink" title="vue-server-renderer"></a>vue-server-renderer</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> renderer = createRenderer(&#123;</span><br><span class="line">  template: <span class="built_in">require</span>(<span class="string">'fs'</span>).readFileSync(<span class="string">'./index.template.html'</span>, <span class="string">'utf-8'</span>),</span><br><span class="line">&#125;);</span><br><span class="line">renderer.renderToString(app, (err, html) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">  <span class="built_in">console</span>.log(html);</span><br><span class="line">  <span class="comment">// =&gt; &lt;div data-server-rendered="true"&gt;Hello World&lt;/div&gt;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="方法二的坎坷旅途"><a href="#方法二的坎坷旅途" class="headerlink" title="方法二的坎坷旅途"></a>方法二的坎坷旅途</h2><h3 id="vue-rx"><a href="#vue-rx" class="headerlink" title="vue-rx"></a>vue-rx</h3><p>在探索 rxjs 的解决方法中耗费了一段时间，首先查看了 vue-rx 库，查看其 API。</p>
+<ul>
+<li>\$watchAsObservable(expOrFn, [options])</li>
+<li>\$eventToObservable(event)</li>
+<li>\$subscribeTo(observable, next, error, complete)</li>
+<li>\$fromDOMEvent(selector, event)</li>
+<li>\$createObservableMethod(methodName)</li>
+</ul>
+<h3 id="rxjs"><a href="#rxjs" class="headerlink" title="rxjs"></a>rxjs</h3><p>在思索了一番后，发觉这些方法都不适合需求，接下来该继续向 rxjs 文档出发了。</p>
+<p>rxjs 中有几个核心的概念</p>
+<ul>
+<li>Observables</li>
+<li>Subscription</li>
+<li>Subjects</li>
+<li><p>Operators</p>
+</li>
+<li><p>Observables are lazy Push collections of multiple values.</p>
+</li>
+<li>A Subscription is an object that represents a disposable resource, usually the execution of an Observable.</li>
+<li>An RxJS Subject is a special type of Observable that allows values to be multicasted to many Observers.</li>
+<li>Operators are functions.</li>
+</ul>
+<p>可以将 Observables 当做是生产者，可以延迟生产值；将 Subscription 当做是消费者，可以订阅 Observables。在这个业务需求中，两次后台请求则是生产值，而请求返回后将数据回填则是消费值。最后采用了 Subject 对象，既可以生产值，也能够消费值。当第一次调用 getList 方法时，生成 subject，并生产值；之后每次都会生产值；在消费者，则可以做一些过滤操作。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">getList(params) &#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">this</span>.subject == <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">this</span>.subject = <span class="keyword">new</span> Subject()</span><br><span class="line">    <span class="keyword">this</span>.subject.pipe(debounceTime(<span class="number">100</span>)).subscribe(&#123;</span><br><span class="line">      next: <span class="function"><span class="params">val</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">this</span>.dispatchQuery(val)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">this</span>.subject.next(params)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -375,7 +400,7 @@
           
             <a href="/tags/vue/" rel="tag"># vue</a>
           
-            <a href="/tags/vue-ssr/" rel="tag"># vue-ssr</a>
+            <a href="/tags/rxjs/" rel="tag"># rxjs</a>
           
         </div>
       
@@ -388,8 +413,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/26/vue/vue/" rel="next" title="vue框架">
-                <i class="fa fa-chevron-left"></i> vue框架
+              <a href="/2019/04/29/vue/element-table-hide/" rel="next" title="vue-隐藏element的table组件列">
+                <i class="fa fa-chevron-left"></i> vue-隐藏element的table组件列
               </a>
             
           </div>
@@ -398,8 +423,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/29/vue/element-table-hide/" rel="prev" title="vue-隐藏element的table组件列">
-                vue-隐藏element的table组件列 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/30/vue/vue-cli/" rel="prev" title="vue-cli">
+                vue-cli <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -546,7 +571,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原因"><span class="nav-number">1.</span> <span class="nav-text">原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue-server-renderer"><span class="nav-number">2.</span> <span class="nav-text">vue-server-renderer</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#业务场景"><span class="nav-number">1.</span> <span class="nav-text">业务场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二的坎坷旅途"><span class="nav-number">3.</span> <span class="nav-text">方法二的坎坷旅途</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-rx"><span class="nav-number">3.1.</span> <span class="nav-text">vue-rx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rxjs"><span class="nav-number">3.2.</span> <span class="nav-text">rxjs</span></a></li></ol></li></ol></div>
             
 
           </div>
