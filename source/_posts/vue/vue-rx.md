@@ -1,22 +1,20 @@
 ---
 title: vue-函数式编程应用
 date: 2019-04-30 09:00:00
-tags: [vue, rxjs]
-categories: vue
 ---
 
-## 业务场景
+## 遇到问题
 
 在 element 的 Pagination 组件中，分别去监听 size-change 与 current-change 事件，同时又向后台发送数据请求。size-change 可能会引起 current-change，此时会发送两次请求，但是最终需要的结果是最后一次发送请求的结果。
 
-## 解决方法
+## 分析问题
 
 这种思想类似于函数防抖，函数防抖的思想是等待、等待、等待一段时间后，再去执行。
 
 - 利用 loadsh 函数库的 debounce 方法生成一个防抖函数去包装真实的后台数据请求；
 - 既然 loash 函数库可以，那么 rxjs 应该也可以。
 
-## 方法二的坎坷旅途
+## 解决问题
 
 ### vue-rx
 

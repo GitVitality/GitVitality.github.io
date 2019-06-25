@@ -1,7 +1,6 @@
 ---
 title: 浏览器缓存
 date: 2019-02-23 09:00:00
-tags: [basis, cache]
 categories: basis
 ---
 
@@ -23,6 +22,6 @@ categories: basis
 
 原理：尽量延长资源的缓存时间，但是无法通知资源是否更新，revving 使用添加版本号的方式在 html 文件中通知文件更新，添加了版本号的文件是一个新的独立资源请求。
 
-## 参考文献
+## 参考链接
 
 [HTTP 缓存](https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ)

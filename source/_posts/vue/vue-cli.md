@@ -1,7 +1,6 @@
 ---
 title: vue-cli
 date: 2019-04-30 12:01:57
-tags: [vue-cli]
 categories: vue
 ---
 
