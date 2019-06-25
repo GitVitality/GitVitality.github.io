@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="vue,rxjs,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="业务场景在 element 的 Pagination 组件中，分别去监听 size-change 与 current-change 事件，同时又向后台发送数据请求。size-change 可能会引起 current-change，此时会发送两次请求，但是最终需要的结果是最后一次发送请求的结果。 解决方法这种思想类似于函数防抖，函数防抖的思想是等待、等待、等待一段时间后，再去执行。  利用 load">
-<meta name="keywords" content="vue,rxjs">
+<meta name="description" content="遇到问题在 element 的 Pagination 组件中，分别去监听 size-change 与 current-change 事件，同时又向后台发送数据请求。size-change 可能会引起 current-change，此时会发送两次请求，但是最终需要的结果是最后一次发送请求的结果。 分析问题这种思想类似于函数防抖，函数防抖的思想是等待、等待、等待一段时间后，再去执行。  利用 load">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-函数式编程应用">
 <meta property="og:url" content="http://yoursite.com/2019/04/30/vue/vue-rx/index.html">
 <meta property="og:site_name" content="远行">
-<meta property="og:description" content="业务场景在 element 的 Pagination 组件中，分别去监听 size-change 与 current-change 事件，同时又向后台发送数据请求。size-change 可能会引起 current-change，此时会发送两次请求，但是最终需要的结果是最后一次发送请求的结果。 解决方法这种思想类似于函数防抖，函数防抖的思想是等待、等待、等待一段时间后，再去执行。  利用 load">
+<meta property="og:description" content="遇到问题在 element 的 Pagination 组件中，分别去监听 size-change 与 current-change 事件，同时又向后台发送数据请求。size-change 可能会引起 current-change，此时会发送两次请求，但是最终需要的结果是最后一次发送请求的结果。 分析问题这种思想类似于函数防抖，函数防抖的思想是等待、等待、等待一段时间后，再去执行。  利用 load">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-30T04:01:14.621Z">
+<meta property="og:updated_time" content="2019-06-25T07:56:10.921Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-函数式编程应用">
-<meta name="twitter:description" content="业务场景在 element 的 Pagination 组件中，分别去监听 size-change 与 current-change 事件，同时又向后台发送数据请求。size-change 可能会引起 current-change，此时会发送两次请求，但是最终需要的结果是最后一次发送请求的结果。 解决方法这种思想类似于函数防抖，函数防抖的思想是等待、等待、等待一段时间后，再去执行。  利用 load">
+<meta name="twitter:description" content="遇到问题在 element 的 Pagination 组件中，分别去监听 size-change 与 current-change 事件，同时又向后台发送数据请求。size-change 可能会引起 current-change，此时会发送两次请求，但是最终需要的结果是最后一次发送请求的结果。 分析问题这种思想类似于函数防抖，函数防抖的思想是等待、等待、等待一段时间后，再去执行。  利用 load">
 
 
 
@@ -200,16 +199,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
@@ -302,28 +291,6 @@
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -351,13 +318,13 @@
       
 
       
-        <h2 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h2><p>在 element 的 Pagination 组件中，分别去监听 size-change 与 current-change 事件，同时又向后台发送数据请求。size-change 可能会引起 current-change，此时会发送两次请求，但是最终需要的结果是最后一次发送请求的结果。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>这种思想类似于函数防抖，函数防抖的思想是等待、等待、等待一段时间后，再去执行。</p>
+        <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>在 element 的 Pagination 组件中，分别去监听 size-change 与 current-change 事件，同时又向后台发送数据请求。size-change 可能会引起 current-change，此时会发送两次请求，但是最终需要的结果是最后一次发送请求的结果。</p>
+<h2 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h2><p>这种思想类似于函数防抖，函数防抖的思想是等待、等待、等待一段时间后，再去执行。</p>
 <ul>
 <li>利用 loadsh 函数库的 debounce 方法生成一个防抖函数去包装真实的后台数据请求；</li>
 <li>既然 loash 函数库可以，那么 rxjs 应该也可以。</li>
 </ul>
-<h2 id="方法二的坎坷旅途"><a href="#方法二的坎坷旅途" class="headerlink" title="方法二的坎坷旅途"></a>方法二的坎坷旅途</h2><h3 id="vue-rx"><a href="#vue-rx" class="headerlink" title="vue-rx"></a>vue-rx</h3><p>在探索 rxjs 的解决方法中耗费了一段时间，首先查看了 vue-rx 库，查看其 API。</p>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><h3 id="vue-rx"><a href="#vue-rx" class="headerlink" title="vue-rx"></a>vue-rx</h3><p>在探索 rxjs 的解决方法中耗费了一段时间，首先查看了 vue-rx 库，查看其 API。</p>
 <ul>
 <li>\$watchAsObservable(expOrFn, [options])</li>
 <li>\$eventToObservable(event)</li>
@@ -395,14 +362,6 @@
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/vue/" rel="tag"># vue</a>
-          
-            <a href="/tags/rxjs/" rel="tag"># rxjs</a>
-          
-        </div>
       
 
       
@@ -502,7 +461,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -513,21 +472,12 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
 
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
             
 
           </nav>
@@ -571,7 +521,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#业务场景"><span class="nav-number">1.</span> <span class="nav-text">业务场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法二的坎坷旅途"><span class="nav-number">3.</span> <span class="nav-text">方法二的坎坷旅途</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-rx"><span class="nav-number">3.1.</span> <span class="nav-text">vue-rx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rxjs"><span class="nav-number">3.2.</span> <span class="nav-text">rxjs</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到问题"><span class="nav-number">1.</span> <span class="nav-text">遇到问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析问题"><span class="nav-number">2.</span> <span class="nav-text">分析问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决问题"><span class="nav-number">3.</span> <span class="nav-text">解决问题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-rx"><span class="nav-number">3.1.</span> <span class="nav-text">vue-rx</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rxjs"><span class="nav-number">3.2.</span> <span class="nav-text">rxjs</span></a></li></ol></li></ol></div>
             
 
           </div>

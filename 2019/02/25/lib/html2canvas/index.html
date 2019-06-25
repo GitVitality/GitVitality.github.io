@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="lib,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="业务场景采用 html2canvas 库将图片转成 canvas，再通过 jspdf 库打印图片。 初次解决方案设置 html2canvas 库的参数 allowTaint、useCORS；由于请求了跨域资源引起了画布污染、此时可以完整的将 dom 节点转成 canvas；当将 canvas 采用 toDataURL()时，需要获取图片的资源，此时却没有获取到图片的资源。 失败原因虽然传递了 us">
-<meta name="keywords" content="lib">
+<meta name="description" content="遇到问题采用 html2canvas 库将图片转成 canvas，再通过 jspdf 库打印图片。 分析问题设置 html2canvas 库的参数 allowTaint、useCORS；由于请求了跨域资源引起了画布污染、此时可以完整的将 dom 节点转成 canvas；当将 canvas 采用 toDataURL()时，需要获取图片的资源，此时却没有获取到图片的资源。 虽然传递了 useCORS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="html2canvas">
 <meta property="og:url" content="http://yoursite.com/2019/02/25/lib/html2canvas/index.html">
 <meta property="og:site_name" content="远行">
-<meta property="og:description" content="业务场景采用 html2canvas 库将图片转成 canvas，再通过 jspdf 库打印图片。 初次解决方案设置 html2canvas 库的参数 allowTaint、useCORS；由于请求了跨域资源引起了画布污染、此时可以完整的将 dom 节点转成 canvas；当将 canvas 采用 toDataURL()时，需要获取图片的资源，此时却没有获取到图片的资源。 失败原因虽然传递了 us">
+<meta property="og:description" content="遇到问题采用 html2canvas 库将图片转成 canvas，再通过 jspdf 库打印图片。 分析问题设置 html2canvas 库的参数 allowTaint、useCORS；由于请求了跨域资源引起了画布污染、此时可以完整的将 dom 节点转成 canvas；当将 canvas 采用 toDataURL()时，需要获取图片的资源，此时却没有获取到图片的资源。 虽然传递了 useCORS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-30T03:42:41.478Z">
+<meta property="og:updated_time" content="2019-06-25T07:55:54.462Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="html2canvas">
-<meta name="twitter:description" content="业务场景采用 html2canvas 库将图片转成 canvas，再通过 jspdf 库打印图片。 初次解决方案设置 html2canvas 库的参数 allowTaint、useCORS；由于请求了跨域资源引起了画布污染、此时可以完整的将 dom 节点转成 canvas；当将 canvas 采用 toDataURL()时，需要获取图片的资源，此时却没有获取到图片的资源。 失败原因虽然传递了 us">
+<meta name="twitter:description" content="遇到问题采用 html2canvas 库将图片转成 canvas，再通过 jspdf 库打印图片。 分析问题设置 html2canvas 库的参数 allowTaint、useCORS；由于请求了跨域资源引起了画布污染、此时可以完整的将 dom 节点转成 canvas；当将 canvas 采用 toDataURL()时，需要获取图片的资源，此时却没有获取到图片的资源。 虽然传递了 useCORS">
 
 
 
@@ -196,16 +195,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
           </a>
         </li>
       
@@ -351,16 +340,11 @@
       
 
       
-        <h2 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h2><p>采用 html2canvas 库将图片转成 canvas，再通过 jspdf 库打印图片。</p>
-<h2 id="初次解决方案"><a href="#初次解决方案" class="headerlink" title="初次解决方案"></a>初次解决方案</h2><p>设置 html2canvas 库的参数 allowTaint、useCORS；由于请求了跨域资源引起了画布污染、此时可以完整的将 dom 节点转成 canvas；当将 canvas 采用 toDataURL()时，需要获取图片的资源，此时却没有获取到图片的资源。</p>
-<h2 id="失败原因"><a href="#失败原因" class="headerlink" title="失败原因"></a>失败原因</h2><p>虽然传递了 useCORS 参数，去请求百度地图跨域的图片资源，但是由于第一次渲染时，没有添加跨域请求头，等到第二次需要获取资源时再添加 origin 参数，会直接从缓存读取图片内容，chrome 对此做出安全限制。</p>
-<h2 id="最终解决方案"><a href="#最终解决方案" class="headerlink" title="最终解决方案"></a>最终解决方案</h2><ul>
-<li>在第二次获取资源时，添加时间戳作为查询参数，重新向服务器请求资源。（需要修改源码）</li>
-<li>不使用 https 请求，chrome 浏览器对 http 请求没有做安全控制。</li>
-<li>禁用浏览器缓存。（对用户不友好）</li>
-</ul>
-<p>crossOrigin: Anonymous</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="noopener">HTTP 访问控制（CORS）</a></p>
+        <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>采用 html2canvas 库将图片转成 canvas，再通过 jspdf 库打印图片。</p>
+<h2 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h2><p>设置 html2canvas 库的参数 allowTaint、useCORS；由于请求了跨域资源引起了画布污染、此时可以完整的将 dom 节点转成 canvas；当将 canvas 采用 toDataURL()时，需要获取图片的资源，此时却没有获取到图片的资源。</p>
+<p>虽然传递了 useCORS 参数，去请求百度地图跨域的图片资源，但是由于第一次渲染时，没有添加跨域请求头，等到第二次需要获取资源时再添加 origin 参数，会直接从缓存读取图片内容，chrome 对此做出安全限制。</p>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>在第二次获取资源时，添加时间戳作为查询参数，重新向服务器请求资源。（需要修改源码）</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="noopener">HTTP 访问控制（CORS）</a><br><a href="http://jingkaizhao.com/2017/03/02/img-cors/" target="_blank" rel="noopener">非跨域图片缓存导致跨域图片请求失败</a></p>
 
       
     </div>
@@ -376,12 +360,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/lib/" rel="tag"># lib</a>
-          
-        </div>
-      
 
       
       
@@ -391,8 +369,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/24/basis/storage/" rel="next" title="客户端存储">
-                <i class="fa fa-chevron-left"></i> 客户端存储
+              <a href="/2019/02/23/basis/cache/" rel="next" title="浏览器缓存">
+                <i class="fa fa-chevron-left"></i> 浏览器缓存
               </a>
             
           </div>
@@ -401,8 +379,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/26/project/project/" rel="prev" title="对项目的思考">
-                对项目的思考 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/04/29/vue/element-table-hide/" rel="prev" title="vue-隐藏element的table组件列">
+                vue-隐藏element的table组件列 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -480,7 +458,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -491,21 +469,12 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
 
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
             
 
           </nav>
@@ -549,7 +518,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#业务场景"><span class="nav-number">1.</span> <span class="nav-text">业务场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#初次解决方案"><span class="nav-number">2.</span> <span class="nav-text">初次解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#失败原因"><span class="nav-number">3.</span> <span class="nav-text">失败原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最终解决方案"><span class="nav-number">4.</span> <span class="nav-text">最终解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">5.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到问题"><span class="nav-number">1.</span> <span class="nav-text">遇到问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析问题"><span class="nav-number">2.</span> <span class="nav-text">分析问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决问题"><span class="nav-number">3.</span> <span class="nav-text">解决问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>

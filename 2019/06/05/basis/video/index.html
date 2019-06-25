@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="video,javascript,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="业务场景 video 视频上传 video 视频缩略图截取 video 视频播放  遇到的问题 视频上传，nginx 上传文件大小设置 视频缩略图截取，采用 canvas 的形式，但是部分视频格式不支持，提示用户 视频播放，拖动以及 safari 浏览器播放需要 http 响应头部支持  调研过程 视频转码，ffmpeg，相应的前端库有 ffmpeg.js、videoconvert.js，采用 e">
-<meta name="keywords" content="video,javascript">
+<meta name="description" content="遇到问题 视频上传，nginx 上传文件大小设置； 视频缩略图截取，采用 canvas 的形式，但是部分视频格式不支持，提示用户； 视频播放，拖动以及 safari 浏览器播放需要 http 响应头部支持。  分析问题 视频转码，ffmpeg，相应的前端库有 ffmpeg.js、videoconvert.js，采用 emcc 将 ffmepg 编译成 asmscript 或者 webassembl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="前端视频处理">
 <meta property="og:url" content="http://yoursite.com/2019/06/05/basis/video/index.html">
 <meta property="og:site_name" content="远行">
-<meta property="og:description" content="业务场景 video 视频上传 video 视频缩略图截取 video 视频播放  遇到的问题 视频上传，nginx 上传文件大小设置 视频缩略图截取，采用 canvas 的形式，但是部分视频格式不支持，提示用户 视频播放，拖动以及 safari 浏览器播放需要 http 响应头部支持  调研过程 视频转码，ffmpeg，相应的前端库有 ffmpeg.js、videoconvert.js，采用 e">
+<meta property="og:description" content="遇到问题 视频上传，nginx 上传文件大小设置； 视频缩略图截取，采用 canvas 的形式，但是部分视频格式不支持，提示用户； 视频播放，拖动以及 safari 浏览器播放需要 http 响应头部支持。  分析问题 视频转码，ffmpeg，相应的前端库有 ffmpeg.js、videoconvert.js，采用 emcc 将 ffmepg 编译成 asmscript 或者 webassembl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-06-05T09:50:20.072Z">
+<meta property="og:updated_time" content="2019-06-25T07:55:50.471Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="前端视频处理">
-<meta name="twitter:description" content="业务场景 video 视频上传 video 视频缩略图截取 video 视频播放  遇到的问题 视频上传，nginx 上传文件大小设置 视频缩略图截取，采用 canvas 的形式，但是部分视频格式不支持，提示用户 视频播放，拖动以及 safari 浏览器播放需要 http 响应头部支持  调研过程 视频转码，ffmpeg，相应的前端库有 ffmpeg.js、videoconvert.js，采用 e">
+<meta name="twitter:description" content="遇到问题 视频上传，nginx 上传文件大小设置； 视频缩略图截取，采用 canvas 的形式，但是部分视频格式不支持，提示用户； 视频播放，拖动以及 safari 浏览器播放需要 http 响应头部支持。  分析问题 视频转码，ffmpeg，相应的前端库有 ffmpeg.js、videoconvert.js，采用 emcc 将 ffmepg 编译成 asmscript 或者 webassembl">
 
 
 
@@ -196,16 +195,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
           </a>
         </li>
       
@@ -351,21 +340,23 @@
       
 
       
-        <h2 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h2><ol>
-<li>video 视频上传</li>
-<li>video 视频缩略图截取</li>
-<li>video 视频播放</li>
+        <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><ol>
+<li>视频上传，nginx 上传文件大小设置；</li>
+<li>视频缩略图截取，采用 canvas 的形式，但是部分视频格式不支持，提示用户；</li>
+<li>视频播放，拖动以及 safari 浏览器播放需要 http 响应头部支持。</li>
 </ol>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
-<li>视频上传，nginx 上传文件大小设置</li>
-<li>视频缩略图截取，采用 canvas 的形式，但是部分视频格式不支持，提示用户</li>
-<li>视频播放，拖动以及 safari 浏览器播放需要 http 响应头部支持</li>
+<h2 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h2><ol>
+<li>视频转码，ffmpeg，相应的前端库有 ffmpeg.js、videoconvert.js，采用 emcc 将 ffmepg 编译成 asmscript 或者 webassembly；</li>
+<li>视频实时流媒体处理，webrtc、getusermedia、 media source；</li>
+<li>http 206。</li>
 </ol>
-<h2 id="调研过程"><a href="#调研过程" class="headerlink" title="调研过程"></a>调研过程</h2><ol>
-<li>视频转码，ffmpeg，相应的前端库有 ffmpeg.js、videoconvert.js，采用 emcc 将 ffmepg 编译成 asmscript 或者 webassembly</li>
-<li>视频实时流媒体处理，webrtc、getusermedia、 media source</li>
-<li>http 206</li>
-</ol>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p><a href="https://www.yinchengli.com/2018/07/28/wasm-ffmpeg-get-video-frame/" target="_blank" rel="noopener">wasm + ffmpeg 实现前端截取视频帧功能</a>，编译过程中遇到的问题。</p>
+<ul>
+<li>编译时无法找到头文件，需要用 pkg-config 添加头文件；</li>
+<li>编译出错，emscripten 安装的版本不对；</li>
+<li>初始化 webassembly 出错, RangeError。</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://github.com/Kagami/ffmpeg.js/" target="_blank" rel="noopener">ffmpeg.js</a><br><a href="https://github.com/bgrins/videoconverter.js" target="_blank" rel="noopener">videoconverter.js</a><br><a href="https://github.com/liyincheng/ffmpeg-wasm-video-to-picture" target="_blank" rel="noopener">ffmpeg-wasm-video-to-picture</a><br><a href="https://www.yinchengli.com/2018/07/28/wasm-ffmpeg-get-video-frame/" target="_blank" rel="noopener">wasm + ffmpeg 实现前端截取视频帧功能</a></p>
 
       
     </div>
@@ -380,14 +371,6 @@
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/video/" rel="tag"># video</a>
-          
-            <a href="/tags/javascript/" rel="tag"># javascript</a>
-          
-        </div>
       
 
       
@@ -407,6 +390,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/25/basis/postman/" rel="prev" title="解决开发网故障的问题">
+                解决开发网故障的问题 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -483,7 +470,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -494,21 +481,12 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
 
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
             
 
           </nav>
@@ -552,7 +530,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#业务场景"><span class="nav-number">1.</span> <span class="nav-text">业务场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到的问题"><span class="nav-number">2.</span> <span class="nav-text">遇到的问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#调研过程"><span class="nav-number">3.</span> <span class="nav-text">调研过程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到问题"><span class="nav-number">1.</span> <span class="nav-text">遇到问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析问题"><span class="nav-number">2.</span> <span class="nav-text">分析问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决问题"><span class="nav-number">3.</span> <span class="nav-text">解决问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>

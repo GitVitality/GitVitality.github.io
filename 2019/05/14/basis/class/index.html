@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="class,typescript,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="业务场景typescript 交叉类型12345678910111213141516171819202122232425262728function extend&amp;lt;T, U&amp;gt;(first: T, second: U): T &amp;amp; U &amp;#123;    let result = &amp;lt;T &amp;amp; U&amp;gt;&amp;#123;&amp;#125;;    for (let id in fi">
-<meta name="keywords" content="class,typescript">
+<meta name="description" content="typescript 交叉类型12345678910111213141516171819202122232425262728function extend&amp;lt;T, U&amp;gt;(first: T, second: U): T &amp;amp; U &amp;#123;    let result = &amp;lt;T &amp;amp; U&amp;gt;&amp;#123;&amp;#125;;    for (let id in first)">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript 中的 class">
 <meta property="og:url" content="http://yoursite.com/2019/05/14/basis/class/index.html">
 <meta property="og:site_name" content="远行">
-<meta property="og:description" content="业务场景typescript 交叉类型12345678910111213141516171819202122232425262728function extend&amp;lt;T, U&amp;gt;(first: T, second: U): T &amp;amp; U &amp;#123;    let result = &amp;lt;T &amp;amp; U&amp;gt;&amp;#123;&amp;#125;;    for (let id in fi">
+<meta property="og:description" content="typescript 交叉类型12345678910111213141516171819202122232425262728function extend&amp;lt;T, U&amp;gt;(first: T, second: U): T &amp;amp; U &amp;#123;    let result = &amp;lt;T &amp;amp; U&amp;gt;&amp;#123;&amp;#125;;    for (let id in first)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-14T10:18:58.505Z">
+<meta property="og:updated_time" content="2019-06-25T07:55:46.301Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 中的 class">
-<meta name="twitter:description" content="业务场景typescript 交叉类型12345678910111213141516171819202122232425262728function extend&amp;lt;T, U&amp;gt;(first: T, second: U): T &amp;amp; U &amp;#123;    let result = &amp;lt;T &amp;amp; U&amp;gt;&amp;#123;&amp;#125;;    for (let id in fi">
+<meta name="twitter:description" content="typescript 交叉类型12345678910111213141516171819202122232425262728function extend&amp;lt;T, U&amp;gt;(first: T, second: U): T &amp;amp; U &amp;#123;    let result = &amp;lt;T &amp;amp; U&amp;gt;&amp;#123;&amp;#125;;    for (let id in first)">
 
 
 
@@ -196,16 +195,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
           </a>
         </li>
       
@@ -351,11 +340,11 @@
       
 
       
-        <h2 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h2><h3 id="typescript-交叉类型"><a href="#typescript-交叉类型" class="headerlink" title="typescript 交叉类型"></a>typescript 交叉类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>&lt;<span class="title">T</span>, <span class="title">U</span>&gt;(<span class="params">first: T, second: U</span>): <span class="title">T</span> &amp; <span class="title">U</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = &lt;T &amp; U&gt;&#123;&#125;;</span><br><span class="line">    for (let id in first) &#123;</span><br><span class="line">        (&lt;any&gt;result)[id] = (&lt;any&gt;first)[id];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (let id in second) &#123;</span><br><span class="line">        if (!result.hasOwnProperty(id)) &#123;</span><br><span class="line">            (&lt;any&gt;result)[id] = (&lt;any&gt;second)[id];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Person &#123;</span><br><span class="line">    constructor(public name: string) &#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line">interface Loggable &#123;</span><br><span class="line">    log(): void;</span><br><span class="line">&#125;</span><br><span class="line">class ConsoleLogger implements Loggable &#123;</span><br><span class="line">    log() &#123;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var jim = extend(new Person("Jim"), new ConsoleLogger());</span><br><span class="line">var n = jim.name;</span><br><span class="line">jim.log();</span><br></pre></td></tr></table></figure>
-<h3 id="typescript-运行结果"><a href="#typescript-运行结果" class="headerlink" title="typescript 运行结果"></a>typescript 运行结果</h3><p>–target ES5, log 方法被拷贝<br>–target ESNext, log 方法没有被拷贝</p>
+        <h2 id="typescript-交叉类型"><a href="#typescript-交叉类型" class="headerlink" title="typescript 交叉类型"></a>typescript 交叉类型</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>&lt;<span class="title">T</span>, <span class="title">U</span>&gt;(<span class="params">first: T, second: U</span>): <span class="title">T</span> &amp; <span class="title">U</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = &lt;T &amp; U&gt;&#123;&#125;;</span><br><span class="line">    for (let id in first) &#123;</span><br><span class="line">        (&lt;any&gt;result)[id] = (&lt;any&gt;first)[id];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (let id in second) &#123;</span><br><span class="line">        if (!result.hasOwnProperty(id)) &#123;</span><br><span class="line">            (&lt;any&gt;result)[id] = (&lt;any&gt;second)[id];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Person &#123;</span><br><span class="line">    constructor(public name: string) &#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line">interface Loggable &#123;</span><br><span class="line">    log(): void;</span><br><span class="line">&#125;</span><br><span class="line">class ConsoleLogger implements Loggable &#123;</span><br><span class="line">    log() &#123;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var jim = extend(new Person("Jim"), new ConsoleLogger());</span><br><span class="line">var n = jim.name;</span><br><span class="line">jim.log();</span><br></pre></td></tr></table></figure>
+<h2 id="typescript-运行结果"><a href="#typescript-运行结果" class="headerlink" title="typescript 运行结果"></a>typescript 运行结果</h2><p>–target ES5, log 方法被拷贝<br>–target ESNext, log 方法没有被拷贝</p>
 <h2 id="场景分析"><a href="#场景分析" class="headerlink" title="场景分析"></a>场景分析</h2><h3 id="typescript-编译结果"><a href="#typescript-编译结果" class="headerlink" title="typescript 编译结果"></a>typescript 编译结果</h3><p>在 –target ES5 的情况下，编译成 prototype 形式，在 –target ESNext 的情况下，直接编译成 class 格式；</p>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>class 格式下将 prototype 的 log 属性的 enumerable 值设置成了 false</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(ConsoleLogger.prototype, <span class="string">'log'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(ConsoleLogger.prototype, <span class="string">'log'</span>)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -370,14 +359,6 @@
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/class/" rel="tag"># class</a>
-          
-            <a href="/tags/typescript/" rel="tag"># typescript</a>
-          
-        </div>
       
 
       
@@ -477,7 +458,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -488,21 +469,12 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
 
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
             
 
           </nav>
@@ -546,7 +518,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#业务场景"><span class="nav-number">1.</span> <span class="nav-text">业务场景</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#typescript-交叉类型"><span class="nav-number">1.1.</span> <span class="nav-text">typescript 交叉类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#typescript-运行结果"><span class="nav-number">1.2.</span> <span class="nav-text">typescript 运行结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#场景分析"><span class="nav-number">2.</span> <span class="nav-text">场景分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#typescript-编译结果"><span class="nav-number">2.1.</span> <span class="nav-text">typescript 编译结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原因"><span class="nav-number">2.2.</span> <span class="nav-text">原因</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#typescript-交叉类型"><span class="nav-number">1.</span> <span class="nav-text">typescript 交叉类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#typescript-运行结果"><span class="nav-number">2.</span> <span class="nav-text">typescript 运行结果</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#场景分析"><span class="nav-number">3.</span> <span class="nav-text">场景分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#typescript-编译结果"><span class="nav-number">3.1.</span> <span class="nav-text">typescript 编译结果</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#原因"><span class="nav-number">3.2.</span> <span class="nav-text">原因</span></a></li></ol></li></ol></div>
             
 
           </div>

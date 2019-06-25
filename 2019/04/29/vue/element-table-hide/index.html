@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="vue,element,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="业务场景页面上的列表需要展示很多信息，但是在小屏幕上又无法显示，在大屏幕上又比较稀疏。 解决方法目前有两种交互方式  展开行 隐藏部分列，同时提供右键菜单栏方式进行显示或隐藏列">
-<meta name="keywords" content="vue,element">
+<meta name="description" content="遇到问题 页面上的列表需要展示很多信息，但是在小屏幕上又无法显示，在大屏幕上又比较稀疏。  分析问题三种交互方式：  展开行； 隐藏部分列，同时提供右键菜单栏方式进行显示或隐藏列； 弹窗显示更过信息。  解决问题隐藏部分列功能实现步骤：  监听表头的右键鼠标事件； 将所有的列的配置绑定到 checkbox，同时 checkbox 的状态可以通过 v-if 指令控制列的显示及隐藏; 对于所有可 显示">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue-隐藏element的table组件列">
 <meta property="og:url" content="http://yoursite.com/2019/04/29/vue/element-table-hide/index.html">
 <meta property="og:site_name" content="远行">
-<meta property="og:description" content="业务场景页面上的列表需要展示很多信息，但是在小屏幕上又无法显示，在大屏幕上又比较稀疏。 解决方法目前有两种交互方式  展开行 隐藏部分列，同时提供右键菜单栏方式进行显示或隐藏列">
+<meta property="og:description" content="遇到问题 页面上的列表需要展示很多信息，但是在小屏幕上又无法显示，在大屏幕上又比较稀疏。  分析问题三种交互方式：  展开行； 隐藏部分列，同时提供右键菜单栏方式进行显示或隐藏列； 弹窗显示更过信息。  解决问题隐藏部分列功能实现步骤：  监听表头的右键鼠标事件； 将所有的列的配置绑定到 checkbox，同时 checkbox 的状态可以通过 v-if 指令控制列的显示及隐藏; 对于所有可 显示">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-30T04:01:28.517Z">
+<meta property="og:updated_time" content="2019-06-25T07:56:01.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue-隐藏element的table组件列">
-<meta name="twitter:description" content="业务场景页面上的列表需要展示很多信息，但是在小屏幕上又无法显示，在大屏幕上又比较稀疏。 解决方法目前有两种交互方式  展开行 隐藏部分列，同时提供右键菜单栏方式进行显示或隐藏列">
+<meta name="twitter:description" content="遇到问题 页面上的列表需要展示很多信息，但是在小屏幕上又无法显示，在大屏幕上又比较稀疏。  分析问题三种交互方式：  展开行； 隐藏部分列，同时提供右键菜单栏方式进行显示或隐藏列； 弹窗显示更过信息。  解决问题隐藏部分列功能实现步骤：  监听表头的右键鼠标事件； 将所有的列的配置绑定到 checkbox，同时 checkbox 的状态可以通过 v-if 指令控制列的显示及隐藏; 对于所有可 显示">
 
 
 
@@ -196,16 +195,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
           </a>
         </li>
       
@@ -351,12 +340,21 @@
       
 
       
-        <h2 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h2><p>页面上的列表需要展示很多信息，但是在小屏幕上又无法显示，在大屏幕上又比较稀疏。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>目前有两种交互方式</p>
-<ul>
-<li>展开行</li>
-<li>隐藏部分列，同时提供右键菜单栏方式进行显示或隐藏列</li>
-</ul>
+        <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><ol>
+<li>页面上的列表需要展示很多信息，但是在小屏幕上又无法显示，在大屏幕上又比较稀疏。</li>
+</ol>
+<h2 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h2><p>三种交互方式：</p>
+<ol>
+<li>展开行；</li>
+<li>隐藏部分列，同时提供右键菜单栏方式进行显示或隐藏列；</li>
+<li>弹窗显示更过信息。</li>
+</ol>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>隐藏部分列功能实现步骤：</p>
+<ol>
+<li>监听表头的右键鼠标事件；</li>
+<li>将所有的列的配置绑定到 checkbox，同时 checkbox 的状态可以通过 v-if 指令控制列的显示及隐藏;</li>
+<li>对于所有可 显示/隐藏 的列，增加全部选中与全部隐藏的选项。</li>
+</ol>
 
       
     </div>
@@ -372,14 +370,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/vue/" rel="tag"># vue</a>
-          
-            <a href="/tags/element/" rel="tag"># element</a>
-          
-        </div>
-      
 
       
       
@@ -389,8 +379,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/27/vue/vue-ssr/" rel="next" title="vue-ssr">
-                <i class="fa fa-chevron-left"></i> vue-ssr
+              <a href="/2019/02/25/lib/html2canvas/" rel="next" title="html2canvas">
+                <i class="fa fa-chevron-left"></i> html2canvas
               </a>
             
           </div>
@@ -478,7 +468,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -489,21 +479,12 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
 
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
             
 
           </nav>
@@ -547,7 +528,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#业务场景"><span class="nav-number">1.</span> <span class="nav-text">业务场景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决方法"><span class="nav-number">2.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#遇到问题"><span class="nav-number">1.</span> <span class="nav-text">遇到问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分析问题"><span class="nav-number">2.</span> <span class="nav-text">分析问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解决问题"><span class="nav-number">3.</span> <span class="nav-text">解决问题</span></a></li></ol></div>
             
 
           </div>

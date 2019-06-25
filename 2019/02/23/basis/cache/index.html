@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="basis,cache,">
+  <meta name="keywords" content="Hexo, NexT">
 
 
 
@@ -80,14 +80,13 @@
 
 
 <meta name="description" content="缓存控制 HTTP/1.0 program HTTP/1.1 Cache-Control no store、no cache must-revalidate(强制缓存，但是需要确定缓存的新鲜度) private、public max-age=31536000(浏览器时间，与服务器时间不一致)    新鲜度 If-Modified-Since(Last-Modified、服务器时间，但是只能精确到秒">
-<meta name="keywords" content="basis,cache">
 <meta property="og:type" content="article">
 <meta property="og:title" content="浏览器缓存">
 <meta property="og:url" content="http://yoursite.com/2019/02/23/basis/cache/index.html">
 <meta property="og:site_name" content="远行">
 <meta property="og:description" content="缓存控制 HTTP/1.0 program HTTP/1.1 Cache-Control no store、no cache must-revalidate(强制缓存，但是需要确定缓存的新鲜度) private、public max-age=31536000(浏览器时间，与服务器时间不一致)    新鲜度 If-Modified-Since(Last-Modified、服务器时间，但是只能精确到秒">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-30T03:42:41.476Z">
+<meta property="og:updated_time" content="2019-06-25T07:55:43.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="浏览器缓存">
 <meta name="twitter:description" content="缓存控制 HTTP/1.0 program HTTP/1.1 Cache-Control no store、no cache must-revalidate(强制缓存，但是需要确定缓存的新鲜度) private、public max-age=31536000(浏览器时间，与服务器时间不一致)    新鲜度 If-Modified-Since(Last-Modified、服务器时间，但是只能精确到秒">
@@ -196,16 +195,6 @@
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
-          </a>
-        </li>
-      
-        
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
           </a>
         </li>
       
@@ -366,7 +355,7 @@
 <li>If-None-Match(Etag)</li>
 </ul>
 <h2 id="加速资源-revving-技术"><a href="#加速资源-revving-技术" class="headerlink" title="加速资源(revving 技术)"></a>加速资源(revving 技术)</h2><p>原理：尽量延长资源的缓存时间，但是无法通知资源是否更新，revving 使用添加版本号的方式在 html 文件中通知文件更新，添加了版本号的文件是一个新的独立资源请求。</p>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ" target="_blank" rel="noopener">HTTP 缓存</a></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ" target="_blank" rel="noopener">HTTP 缓存</a></p>
 
       
     </div>
@@ -381,14 +370,6 @@
     
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/basis/" rel="tag"># basis</a>
-          
-            <a href="/tags/cache/" rel="tag"># cache</a>
-          
-        </div>
       
 
       
@@ -409,8 +390,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/02/24/basis/storage/" rel="prev" title="客户端存储">
-                客户端存储 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/02/25/lib/html2canvas/" rel="prev" title="html2canvas">
+                html2canvas <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -488,7 +469,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -499,21 +480,12 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
 
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
             
 
           </nav>
@@ -557,7 +529,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存控制"><span class="nav-number">1.</span> <span class="nav-text">缓存控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新鲜度"><span class="nav-number">2.</span> <span class="nav-text">新鲜度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加速资源-revving-技术"><span class="nav-number">3.</span> <span class="nav-text">加速资源(revving 技术)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">4.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#缓存控制"><span class="nav-number">1.</span> <span class="nav-text">缓存控制</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#新鲜度"><span class="nav-number">2.</span> <span class="nav-text">新鲜度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#加速资源-revving-技术"><span class="nav-number">3.</span> <span class="nav-text">加速资源(revving 技术)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
             
 
           </div>

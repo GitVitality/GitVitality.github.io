@@ -196,16 +196,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            标签
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
@@ -244,6 +234,164 @@
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/25/basis/postman/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="杨岚">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="远行">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/06/25/basis/postman/" itemprop="url">解决开发网故障的问题</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-25T09:00:00+08:00">
+                2019-06-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/basis/" itemprop="url" rel="index">
+                    <span itemprop="name">basis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><ol>
+<li>敏捷开发时，后端定义完接口，但是无法和前端调试；</li>
+<li>前端开发过程中，开发网出现故障问题。</li>
+</ol>
+<h2 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h2><ol>
+<li>针对于问题一，可以使用 postman 定义接口并生成 mock-server;</li>
+<li>针对于问题二，则需要在开发网是正常的情况下，备份出请求正常的数据并生成 mock-server。</li>
+</ol>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><ol>
+<li>目前 postman 可以解决问题一，但是对于问题二来讲，postman 拦截请求后添加到 collection 没有对接口进行去重处理；</li>
+<li>需要手动保存 examples，mock-server 的速度非常缓慢。</li>
+</ol>
+<h2 id="优化工作"><a href="#优化工作" class="headerlink" title="优化工作"></a>优化工作</h2><ol>
+<li>能初始化 mock 数据；</li>
+<li>能截取网络请求，并更新 mock 数据，便于调试。</li>
+</ol>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://medium.com/better-practices/https-medium-com-postman-engineering-fake-it-till-you-make-it-mocks-for-agile-development-f4d050cad694" target="_blank" rel="noopener">Fake it till you make it: mocks for agile development</a></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
     
       
 
@@ -351,21 +499,23 @@
       
         
           
-            <h2 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h2><ol>
-<li>video 视频上传</li>
-<li>video 视频缩略图截取</li>
-<li>video 视频播放</li>
+            <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><ol>
+<li>视频上传，nginx 上传文件大小设置；</li>
+<li>视频缩略图截取，采用 canvas 的形式，但是部分视频格式不支持，提示用户；</li>
+<li>视频播放，拖动以及 safari 浏览器播放需要 http 响应头部支持。</li>
 </ol>
-<h2 id="遇到的问题"><a href="#遇到的问题" class="headerlink" title="遇到的问题"></a>遇到的问题</h2><ol>
-<li>视频上传，nginx 上传文件大小设置</li>
-<li>视频缩略图截取，采用 canvas 的形式，但是部分视频格式不支持，提示用户</li>
-<li>视频播放，拖动以及 safari 浏览器播放需要 http 响应头部支持</li>
+<h2 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h2><ol>
+<li>视频转码，ffmpeg，相应的前端库有 ffmpeg.js、videoconvert.js，采用 emcc 将 ffmepg 编译成 asmscript 或者 webassembly；</li>
+<li>视频实时流媒体处理，webrtc、getusermedia、 media source；</li>
+<li>http 206。</li>
 </ol>
-<h2 id="调研过程"><a href="#调研过程" class="headerlink" title="调研过程"></a>调研过程</h2><ol>
-<li>视频转码，ffmpeg，相应的前端库有 ffmpeg.js、videoconvert.js，采用 emcc 将 ffmepg 编译成 asmscript 或者 webassembly</li>
-<li>视频实时流媒体处理，webrtc、getusermedia、 media source</li>
-<li>http 206</li>
-</ol>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p><a href="https://www.yinchengli.com/2018/07/28/wasm-ffmpeg-get-video-frame/" target="_blank" rel="noopener">wasm + ffmpeg 实现前端截取视频帧功能</a>，编译过程中遇到的问题。</p>
+<ul>
+<li>编译时无法找到头文件，需要用 pkg-config 添加头文件；</li>
+<li>编译出错，emscripten 安装的版本不对；</li>
+<li>初始化 webassembly 出错, RangeError。</li>
+</ul>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://github.com/Kagami/ffmpeg.js/" target="_blank" rel="noopener">ffmpeg.js</a><br><a href="https://github.com/bgrins/videoconverter.js" target="_blank" rel="noopener">videoconverter.js</a><br><a href="https://github.com/liyincheng/ffmpeg-wasm-video-to-picture" target="_blank" rel="noopener">ffmpeg-wasm-video-to-picture</a><br><a href="https://www.yinchengli.com/2018/07/28/wasm-ffmpeg-get-video-frame/" target="_blank" rel="noopener">wasm + ffmpeg 实现前端截取视频帧功能</a></p>
 
           
         
@@ -507,11 +657,11 @@
       
         
           
-            <h2 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h2><h3 id="typescript-交叉类型"><a href="#typescript-交叉类型" class="headerlink" title="typescript 交叉类型"></a>typescript 交叉类型</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>&lt;<span class="title">T</span>, <span class="title">U</span>&gt;(<span class="params">first: T, second: U</span>): <span class="title">T</span> &amp; <span class="title">U</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = &lt;T &amp; U&gt;&#123;&#125;;</span><br><span class="line">    for (let id in first) &#123;</span><br><span class="line">        (&lt;any&gt;result)[id] = (&lt;any&gt;first)[id];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (let id in second) &#123;</span><br><span class="line">        if (!result.hasOwnProperty(id)) &#123;</span><br><span class="line">            (&lt;any&gt;result)[id] = (&lt;any&gt;second)[id];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Person &#123;</span><br><span class="line">    constructor(public name: string) &#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line">interface Loggable &#123;</span><br><span class="line">    log(): void;</span><br><span class="line">&#125;</span><br><span class="line">class ConsoleLogger implements Loggable &#123;</span><br><span class="line">    log() &#123;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var jim = extend(new Person("Jim"), new ConsoleLogger());</span><br><span class="line">var n = jim.name;</span><br><span class="line">jim.log();</span><br></pre></td></tr></table></figure>
-<h3 id="typescript-运行结果"><a href="#typescript-运行结果" class="headerlink" title="typescript 运行结果"></a>typescript 运行结果</h3><p>–target ES5, log 方法被拷贝<br>–target ESNext, log 方法没有被拷贝</p>
+            <h2 id="typescript-交叉类型"><a href="#typescript-交叉类型" class="headerlink" title="typescript 交叉类型"></a>typescript 交叉类型</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">extend</span>&lt;<span class="title">T</span>, <span class="title">U</span>&gt;(<span class="params">first: T, second: U</span>): <span class="title">T</span> &amp; <span class="title">U</span> </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> result = &lt;T &amp; U&gt;&#123;&#125;;</span><br><span class="line">    for (let id in first) &#123;</span><br><span class="line">        (&lt;any&gt;result)[id] = (&lt;any&gt;first)[id];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    for (let id in second) &#123;</span><br><span class="line">        if (!result.hasOwnProperty(id)) &#123;</span><br><span class="line">            (&lt;any&gt;result)[id] = (&lt;any&gt;second)[id];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return result;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">class Person &#123;</span><br><span class="line">    constructor(public name: string) &#123; &#125;</span><br><span class="line">&#125;</span><br><span class="line">interface Loggable &#123;</span><br><span class="line">    log(): void;</span><br><span class="line">&#125;</span><br><span class="line">class ConsoleLogger implements Loggable &#123;</span><br><span class="line">    log() &#123;</span><br><span class="line">        // ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">var jim = extend(new Person("Jim"), new ConsoleLogger());</span><br><span class="line">var n = jim.name;</span><br><span class="line">jim.log();</span><br></pre></td></tr></table></figure>
+<h2 id="typescript-运行结果"><a href="#typescript-运行结果" class="headerlink" title="typescript 运行结果"></a>typescript 运行结果</h2><p>–target ES5, log 方法被拷贝<br>–target ESNext, log 方法没有被拷贝</p>
 <h2 id="场景分析"><a href="#场景分析" class="headerlink" title="场景分析"></a>场景分析</h2><h3 id="typescript-编译结果"><a href="#typescript-编译结果" class="headerlink" title="typescript 编译结果"></a>typescript 编译结果</h3><p>在 –target ES5 的情况下，编译成 prototype 形式，在 –target ESNext 的情况下，直接编译成 class 格式；</p>
 <h3 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h3><p>class 格式下将 prototype 的 log 属性的 enumerable 值设置成了 false</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(ConsoleLogger.prototype, <span class="string">'log'</span>);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Object</span>.getOwnPropertyDescriptor(ConsoleLogger.prototype, <span class="string">'log'</span>)</span><br></pre></td></tr></table></figure>
 
           
         
@@ -653,27 +803,30 @@
       
         
           
-            <h2 id="异步处理的发展"><a href="#异步处理的发展" class="headerlink" title="异步处理的发展"></a>异步处理的发展</h2><h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><p>缺点：陷入回调函数嵌套的地狱</p>
+            <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><ol>
+<li>在 promise 之间传递数据</li>
+</ol>
+<h2 id="分析问题（异步处理的发展）"><a href="#分析问题（异步处理的发展）" class="headerlink" title="分析问题（异步处理的发展）"></a>分析问题（异步处理的发展）</h2><h3 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h3><p>缺点：陷入回调函数嵌套的地狱</p>
 <h3 id="promise"><a href="#promise" class="headerlink" title="promise"></a>promise</h3><p>优点：</p>
-<ul>
+<ol>
 <li>解决了回调函数嵌套的地狱问题</li>
 <li>有明确的状态管理</li>
-</ul>
+</ol>
 <p>缺点：</p>
-<ul>
+<ol>
 <li>代码不清晰</li>
 <li>在业务当中遇到了需要在 promise 之间传递共享数据的需求</li>
-</ul>
+</ol>
 <h3 id="aync-await"><a href="#aync-await" class="headerlink" title="aync await"></a>aync await</h3><p>优点：</p>
-<ul>
+<ol>
 <li>代码逻辑结构清晰</li>
 <li>可以采用 try catch 捕获错误</li>
-</ul>
-<h2 id="业务异步处理"><a href="#业务异步处理" class="headerlink" title="业务异步处理"></a>业务异步处理</h2><ul>
+</ol>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><ol>
 <li>尽量采用 async await 函数，但是需要在 created、mounted 等生命周期中进行异步处理的话，created、mounted 函数写成异步函数有些奇怪。</li>
 <li>注意错误捕获，如果使用 promise，一定要 catch 错误；使用 await，需要 try catch 错误。注意 try catch 只能捕获同步处理的错误，不能捕获 promise 内部的错误 😯。</li>
-</ul>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://juejin.im/post/59970a73f265da249150f490" target="_blank" rel="noopener">Promise 中多个回调函数之间的数据传递</a><br><a href="https://github.com/ryanmcdermott/clean-code-javascript#asyncawait-are-even-cleaner-than-promises" target="_blank" rel="noopener">clean-code-javascript</a></p>
+</ol>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://juejin.im/post/59970a73f265da249150f490" target="_blank" rel="noopener">Promise 中多个回调函数之间的数据传递</a><br><a href="https://github.com/ryanmcdermott/clean-code-javascript#asyncawait-are-even-cleaner-than-promises" target="_blank" rel="noopener">clean-code-javascript</a></p>
 
           
         
@@ -815,7 +968,8 @@
       
         
           
-            <h2 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h2><h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2>
+            <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>表格原生不支持按 shift 键多选的功能</p>
+<h2 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h2><h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2>
           
         
       
@@ -1053,28 +1207,6 @@
           </span>
 
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -1104,13 +1236,13 @@
       
         
           
-            <h2 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h2><p>在 element 的 Pagination 组件中，分别去监听 size-change 与 current-change 事件，同时又向后台发送数据请求。size-change 可能会引起 current-change，此时会发送两次请求，但是最终需要的结果是最后一次发送请求的结果。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>这种思想类似于函数防抖，函数防抖的思想是等待、等待、等待一段时间后，再去执行。</p>
+            <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>在 element 的 Pagination 组件中，分别去监听 size-change 与 current-change 事件，同时又向后台发送数据请求。size-change 可能会引起 current-change，此时会发送两次请求，但是最终需要的结果是最后一次发送请求的结果。</p>
+<h2 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h2><p>这种思想类似于函数防抖，函数防抖的思想是等待、等待、等待一段时间后，再去执行。</p>
 <ul>
 <li>利用 loadsh 函数库的 debounce 方法生成一个防抖函数去包装真实的后台数据请求；</li>
 <li>既然 loash 函数库可以，那么 rxjs 应该也可以。</li>
 </ul>
-<h2 id="方法二的坎坷旅途"><a href="#方法二的坎坷旅途" class="headerlink" title="方法二的坎坷旅途"></a>方法二的坎坷旅途</h2><h3 id="vue-rx"><a href="#vue-rx" class="headerlink" title="vue-rx"></a>vue-rx</h3><p>在探索 rxjs 的解决方法中耗费了一段时间，首先查看了 vue-rx 库，查看其 API。</p>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><h3 id="vue-rx"><a href="#vue-rx" class="headerlink" title="vue-rx"></a>vue-rx</h3><p>在探索 rxjs 的解决方法中耗费了一段时间，首先查看了 vue-rx 库，查看其 API。</p>
 <ul>
 <li>\$watchAsObservable(expOrFn, [options])</li>
 <li>\$eventToObservable(event)</li>
@@ -1275,12 +1407,21 @@
       
         
           
-            <h2 id="业务场景"><a href="#业务场景" class="headerlink" title="业务场景"></a>业务场景</h2><p>页面上的列表需要展示很多信息，但是在小屏幕上又无法显示，在大屏幕上又比较稀疏。</p>
-<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><p>目前有两种交互方式</p>
-<ul>
-<li>展开行</li>
-<li>隐藏部分列，同时提供右键菜单栏方式进行显示或隐藏列</li>
-</ul>
+            <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><ol>
+<li>页面上的列表需要展示很多信息，但是在小屏幕上又无法显示，在大屏幕上又比较稀疏。</li>
+</ol>
+<h2 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h2><p>三种交互方式：</p>
+<ol>
+<li>展开行；</li>
+<li>隐藏部分列，同时提供右键菜单栏方式进行显示或隐藏列；</li>
+<li>弹窗显示更过信息。</li>
+</ol>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>隐藏部分列功能实现步骤：</p>
+<ol>
+<li>监听表头的右键鼠标事件；</li>
+<li>将所有的列的配置绑定到 checkbox，同时 checkbox 的状态可以通过 v-if 指令控制列的显示及隐藏;</li>
+<li>对于所有可 显示/隐藏 的列，增加全部选中与全部隐藏的选项。</li>
+</ol>
 
           
         
@@ -1329,7 +1470,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/27/vue/vue-ssr/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/25/lib/html2canvas/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨岚">
@@ -1348,7 +1489,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/27/vue/vue-ssr/" itemprop="url">vue-ssr</a></h1>
+                <a class="post-title-link" href="/2019/02/25/lib/html2canvas/" itemprop="url">html2canvas</a></h1>
         
 
         <div class="post-meta">
@@ -1360,8 +1501,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-27T09:00:00+08:00">
-                2019-04-27
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-25T09:00:00+08:00">
+                2019-02-25
               </time>
             
 
@@ -1383,8 +1524,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
+                  <a href="/categories/lib/" itemprop="url" rel="index">
+                    <span itemprop="name">lib</span>
                   </a>
                 </span>
 
@@ -1422,11 +1563,11 @@
       
         
           
-            <h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><ul>
-<li>更好的 SEO，由于搜索引擎爬虫抓取工具可以直接查看完全渲染的页面。</li>
-<li>更快的内容到达时间 (time-to-content)。</li>
-</ul>
-<h2 id="vue-server-renderer"><a href="#vue-server-renderer" class="headerlink" title="vue-server-renderer"></a>vue-server-renderer</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> renderer = createRenderer(&#123;</span><br><span class="line">  template: <span class="built_in">require</span>(<span class="string">'fs'</span>).readFileSync(<span class="string">'./index.template.html'</span>, <span class="string">'utf-8'</span>),</span><br><span class="line">&#125;);</span><br><span class="line">renderer.renderToString(app, (err, html) =&gt; &#123;</span><br><span class="line">  <span class="keyword">if</span> (err) <span class="keyword">throw</span> err;</span><br><span class="line">  <span class="built_in">console</span>.log(html);</span><br><span class="line">  <span class="comment">// =&gt; &lt;div data-server-rendered="true"&gt;Hello World&lt;/div&gt;</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+            <h2 id="遇到问题"><a href="#遇到问题" class="headerlink" title="遇到问题"></a>遇到问题</h2><p>采用 html2canvas 库将图片转成 canvas，再通过 jspdf 库打印图片。</p>
+<h2 id="分析问题"><a href="#分析问题" class="headerlink" title="分析问题"></a>分析问题</h2><p>设置 html2canvas 库的参数 allowTaint、useCORS；由于请求了跨域资源引起了画布污染、此时可以完整的将 dom 节点转成 canvas；当将 canvas 采用 toDataURL()时，需要获取图片的资源，此时却没有获取到图片的资源。</p>
+<p>虽然传递了 useCORS 参数，去请求百度地图跨域的图片资源，但是由于第一次渲染时，没有添加跨域请求头，等到第二次需要获取资源时再添加 origin 参数，会直接从缓存读取图片内容，chrome 对此做出安全限制。</p>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>在第二次获取资源时，添加时间戳作为查询参数，重新向服务器请求资源。（需要修改源码）</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Access_control_CORS" target="_blank" rel="noopener">HTTP 访问控制（CORS）</a><br><a href="http://jingkaizhao.com/2017/03/02/img-cors/" target="_blank" rel="noopener">非跨域图片缓存导致跨域图片请求失败</a></p>
 
           
         
@@ -1475,7 +1616,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/vue/vue/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/23/basis/cache/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="杨岚">
@@ -1494,7 +1635,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/04/26/vue/vue/" itemprop="url">vue框架</a></h1>
+                <a class="post-title-link" href="/2019/02/23/basis/cache/" itemprop="url">浏览器缓存</a></h1>
         
 
         <div class="post-meta">
@@ -1506,8 +1647,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-26T09:00:00+08:00">
-                2019-04-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-23T09:00:00+08:00">
+                2019-02-23
               </time>
             
 
@@ -1529,8 +1670,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/vue/" itemprop="url" rel="index">
-                    <span itemprop="name">vue</span>
+                  <a href="/categories/basis/" itemprop="url" rel="index">
+                    <span itemprop="name">basis</span>
                   </a>
                 </span>
 
@@ -1568,236 +1709,22 @@
       
         
           
-            <h2 id="mvc、mvp、mvvm"><a href="#mvc、mvp、mvvm" class="headerlink" title="mvc、mvp、mvvm"></a>mvc、mvp、mvvm</h2><ul>
-<li><p>smalltalk mvc<br>用控制器响应 view(用户)输入、调用 model 接口对数据进行操作，一旦 model 发生变化，通知相关视图进行更新。model-view 观察者模式，model 中存储了相关的视图，一旦数据发生了变化，通知所有的视图进行更新。view-controller 策略者模式，如果要实现不同的响应策略，只需要引用不同的 controller 即可。</p>
-<p>缺点：view 已经具备了独立处理用户事件的能力，全部写在 controller 里面会导致 controller 十分臃肿，view 与 controller 一般是一一对应的，controller 的复用性不好。</p>
+            <h2 id="缓存控制"><a href="#缓存控制" class="headerlink" title="缓存控制"></a>缓存控制</h2><ul>
+<li>HTTP/1.0 program</li>
+<li>HTTP/1.1 Cache-Control<ul>
+<li>no store、no cache</li>
+<li>must-revalidate(强制缓存，但是需要确定缓存的新鲜度)</li>
+<li>private、public</li>
+<li>max-age=31536000(浏览器时间，与服务器时间不一致)</li>
+</ul>
 </li>
-<li><p>taligent mvp<br>在 mvc 里，view 可以直接访问 model，mvp 切断了 view 与 model 的联系，让 presenter 更新 model，再通过观察者模式通知 view。用户对 view 的操作都转移到了 presenter。</p>
-<p>缺点：presenter 作为中间人，除了维护基本的业务逻辑，还要对从 view 到 model 的数据和 model 到 view 的数据进行同步。presenter 如果维护过多的视图需求，将会出现较多的改动。</p>
-</li>
-<li><p>微软 mvvm<br>和 mvc/mvp 不同的是，mvvm 中的 view 通过使用模板语法来声明式的将数据渲染进 DOM，当 viewmodel 对 model 进行更新的时候，会通过数据绑定更新到 view。</p>
-<p>优点：不仅仅简化了业务与界面的依赖，还解决了数据频繁更新（以前用 jQuery 操作 DOM 很繁琐）的问题。</p>
-</li>
 </ul>
-<h2 id="双向数据绑定"><a href="#双向数据绑定" class="headerlink" title="双向数据绑定"></a>双向数据绑定</h2><h3 id="数据绑定方式"><a href="#数据绑定方式" class="headerlink" title="数据绑定方式"></a>数据绑定方式</h3><ul>
-<li>数据劫持 (vue)</li>
-<li>发布-订阅模式 (knockout、backbone)</li>
-<li>脏值检查 (angular)</li>
+<h2 id="新鲜度"><a href="#新鲜度" class="headerlink" title="新鲜度"></a>新鲜度</h2><ul>
+<li>If-Modified-Since(Last-Modified、服务器时间，但是只能精确到秒级)</li>
+<li>If-None-Match(Etag)</li>
 </ul>
-<p>在 Vue 中，使用了双向绑定技术（two-way-data-binding），就是 view 的变化能实时让 model 发生变化，而 model 的变化也能实时更新到 view。Vue 采用数据劫持&amp;发布-订阅模式的方式。</p>
-<h2 id="组件生命周期"><a href="#组件生命周期" class="headerlink" title="组件生命周期"></a>组件生命周期</h2><ul>
-<li>beforeCreate-&gt;created-&gt;beforeMount-&gt;mounted-&gt;beforeDestroy-&gt;destroyed</li>
-<li>beforeUpdate-&gt;updated</li>
-<li>activated-deactivated</li>
-</ul>
-<p>可以看到，在初始化流程、 update 流程和销毁流程中，子级的相应声明周期方法都是在父级相应周期方法之间调用的。比如子级的初始化钩子函数（ beforeCreate 、 created 、 mounted ）都是在父级的 created 和 mounted 之间调用的，这实际上说明等到子级准备好了，父级才会将自己挂载到上一层 DOM 树中去，从而保证界面上不会闪现脏数据。</p>
-<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Vue.directive(<span class="string">'my-directive'</span>, &#123;</span><br><span class="line">  bind() &#123;&#125;,</span><br><span class="line">  inserted() &#123;&#125;,</span><br><span class="line">  update() &#123;&#125;,</span><br><span class="line">  componentUpdated() &#123;&#125;,</span><br><span class="line">  unbind() &#123;&#125;,</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><h3 id="全局守卫"><a href="#全局守卫" class="headerlink" title="全局守卫"></a>全局守卫</h3><ul>
-<li>beforeEach</li>
-<li>afterEach</li>
-<li>beforeEnter</li>
-</ul>
-<h3 id="组件内的守卫"><a href="#组件内的守卫" class="headerlink" title="组件内的守卫"></a>组件内的守卫</h3><ul>
-<li>beforeRouteEnter</li>
-<li>beforeRouteUpdate</li>
-<li>beforeRouteLeave</li>
-</ul>
-<h3 id="路由懒加载"><a href="#路由懒加载" class="headerlink" title="路由懒加载"></a>路由懒加载</h3><p>vue 异步组件和 webpack 的代码分割功能。</p>
-<h4 id="vue-异步组件，返回一个-Promise-的工厂函数"><a href="#vue-异步组件，返回一个-Promise-的工厂函数" class="headerlink" title="vue 异步组件，返回一个 Promise 的工厂函数"></a>vue 异步组件，返回一个 Promise 的工厂函数</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Foo = <span class="function"><span class="params">()</span> =&gt;</span> <span class="built_in">Promise</span>.resolve(&#123; /_ 组件定义对象 _/ &#125;)</span><br></pre></td></tr></table></figure>
-<h4 id="动态的-import-语法定义代码分割点"><a href="#动态的-import-语法定义代码分割点" class="headerlink" title="动态的 import 语法定义代码分割点"></a>动态的 import 语法定义代码分割点</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span>(<span class="string">'./Foo.vue'</span>); <span class="comment">// 返回 Promise</span></span><br></pre></td></tr></table></figure>
-<p>babel 需要 syntax-dynamic-import 插件的支持，结合这两者，这就是如何定义一个能够被 Webpack 自动代码分割的异步组件。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Foo = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="string">'./Foo.vue'</span>);</span><br></pre></td></tr></table></figure>
-<h4 id="使用命名-chunk-将组件进行按组分块"><a href="#使用命名-chunk-将组件进行按组分块" class="headerlink" title="使用命名 chunk 将组件进行按组分块"></a>使用命名 chunk 将组件进行按组分块</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> Foo = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="regexp">/_ webpackChunkName: "group-foo" _/</span> <span class="string">'./Foo.vue'</span>)</span><br><span class="line"><span class="keyword">const</span> Bar = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="regexp">/_ webpackChunkName: "group-foo" _/</span> <span class="string">'./Bar.vue'</span>)</span><br><span class="line"><span class="keyword">const</span> Baz = <span class="function"><span class="params">()</span> =&gt;</span> <span class="keyword">import</span>(<span class="regexp">/_ webpackChunkName: "group-foo" _/</span> <span class="string">'./Baz.vue'</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="vuex"><a href="#vuex" class="headerlink" title="vuex"></a>vuex</h2><ul>
-<li>state</li>
-<li>getter</li>
-<li>mutation</li>
-<li>action</li>
-<li>module</li>
-</ul>
-<p>核心理念：将所有的异步操作最后汇总为 mutation 操作去修改 store 的状态。</p>
-<h2 id="虚拟-dom"><a href="#虚拟-dom" class="headerlink" title="虚拟 dom"></a>虚拟 dom</h2><p>虚拟 dom 本质是因为 dom 操作性能不好，所以采用一个 js 对象表示 dom 树，直接在对象上进行操作，然后再差异化更新，浏览器重新渲染。虚拟 dom 算法本质是表示 dom 树的两个 js 对象的对比，树形结构。</p>
-<p>create-&gt;diff-&gt;patch 过程。</p>
-<h2 id="vue-组件设计"><a href="#vue-组件设计" class="headerlink" title="vue 组件设计"></a>vue 组件设计</h2><h3 id="基础复用（单个组件）"><a href="#基础复用（单个组件）" class="headerlink" title="基础复用（单个组件）"></a>基础复用（单个组件）</h3><ul>
-<li>props</li>
-<li>events</li>
-<li>插槽</li>
-</ul>
-<h3 id="高级复用（组件间）"><a href="#高级复用（组件间）" class="headerlink" title="高级复用（组件间）"></a>高级复用（组件间）</h3><ul>
-<li>mixins</li>
-<li>directives</li>
-<li>渲染函数</li>
-<li>插件</li>
-<li>过滤器</li>
-</ul>
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="https://juejin.im/post/593021272f301e0058273468" target="_blank" rel="noopener">浅析前端开发中的 mvc/mvp/mvvm 模式</a><br><a href="https://juejin.im/post/5a14e9edf265da4312808d86" target="_blank" rel="noopener">发布-订阅模式 和 观察者模式区别</a><br><a href="https://juejin.im/post/5b0281b851882542845257e7" target="_blank" rel="noopener">从头开始学习 vue-router</a><br><a href="https://juejin.im/entry/5a4b504b51882527a13ddcff" target="_blank" rel="noopener">Vuex 框架原理与源码分析</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/02/28/webpack/webpack/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="杨岚">
-      <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="远行">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/02/28/webpack/webpack/" itemprop="url">webpack</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-28T09:00:00+08:00">
-                2019-02-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/webpack/" itemprop="url" rel="index">
-                    <span itemprop="name">webpack</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="打包工具的历程"><a href="#打包工具的历程" class="headerlink" title="打包工具的历程"></a>打包工具的历程</h2><ul>
-<li>Npm Script</li>
-<li>Grunt</li>
-<li>Gulp</li>
-<li>Fis3</li>
-<li>webpack</li>
-</ul>
-<h2 id="webpack-作用"><a href="#webpack-作用" class="headerlink" title="webpack 作用"></a>webpack 作用</h2><ul>
-<li>代码转换：TypeScript 编译成 JavaScript、SCSS 编译成 CSS 等。</li>
-<li>文件优化：压缩 JavaScript、CSS、HTML 代码，压缩合并图片等。</li>
-<li>代码分割：提取多个页面的公共代码、提取首屏不需要执行部分的代码让其异步加载。</li>
-<li>模块合并：在采用模块化的项目里会有很多个模块和文件，需要构建功能把模块分类合并成一个文件。</li>
-<li>自动刷新：监听本地源代码的变化，自动重新构建、刷新浏览器。</li>
-<li>代码校验：在代码被提交到仓库前需要校验代码是否符合规范，以及单元测试是否通过。</li>
-<li>自动发布：更新完代码后，自动构建出线上发布代码并传输给发布系统。</li>
-</ul>
-<p>webpack 是一个打包模块化 JavaScript 的工具，在 webpack 里一切文件皆模块，通过 Loader 转换文件，通过 Plugin 注入钩子，最后输出由多个模块组合成的文件。webpack 专注于构建模块化项目。</p>
-<h2 id="webpack"><a href="#webpack" class="headerlink" title="webpack"></a>webpack</h2><ul>
-<li>Entry：入口，webpack 执行构建的第一步将从 Entry 开始，可抽象成输入。</li>
-<li>Module：模块，在 webpack 里一切皆模块，一个模块对应着一个文件。webpack 会从配置的 Entry 开始递归找出所有依赖的模块。</li>
-<li>Chunk：代码块，一个 Chunk 由多个模块组合而成，用于代码合并与分割。</li>
-<li>Loader：模块转换器，用于把模块原内容按照需求转换成新内容。</li>
-<li>Plugin：扩展插件，在 webpack 构建流程中的特定时机注入扩展逻辑来改变构建结果或做你想要的事情。</li>
-<li>Output：输出结果，在 webpack 经过一系列处理并得出最终想要的代码后输出结果。</li>
-</ul>
-<h2 id="webpack-小实践"><a href="#webpack-小实践" class="headerlink" title="webpack 小实践"></a>webpack 小实践</h2><h3 id="写一个处理-vue-文件插件"><a href="#写一个处理-vue-文件插件" class="headerlink" title="写一个处理 vue 文件插件"></a>写一个处理 vue 文件插件</h3><h3 id="使用-SpritesmithPlugin，自动生成精灵图"><a href="#使用-SpritesmithPlugin，自动生成精灵图" class="headerlink" title="使用 SpritesmithPlugin，自动生成精灵图"></a>使用 SpritesmithPlugin，自动生成精灵图</h3><h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><p><a href="http://webpack.wuhaolin.cn/" target="_blank" rel="noopener">深入浅出 webpack</a></p>
+<h2 id="加速资源-revving-技术"><a href="#加速资源-revving-技术" class="headerlink" title="加速资源(revving 技术)"></a>加速资源(revving 技术)</h2><p>原理：尽量延长资源的缓存时间，但是无法通知资源是否更新，revving 使用添加版本号的方式在 html 文件中通知文件更新，添加了版本号的文件是一个新的独立资源请求。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Caching_FAQ" target="_blank" rel="noopener">HTTP 缓存</a></p>
 
           
         
@@ -1883,7 +1810,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1894,21 +1821,12 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
             
 
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">18</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
             
 
           </nav>
